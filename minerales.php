@@ -9,7 +9,7 @@
         <meta name="author" content="">
         <link rel="icon" href="favicon.ico">
 
-        <title>PHP Customerdb - Minería</title>
+        <title>Minería</title>
 
         <!-- Bootstrap core CSS -->
         <link href="css/bootstrap.min.css" rel="stylesheet">
@@ -54,7 +54,7 @@
                                 <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
                                 <h4 class="modal-title" id="myModalLabel"></h4>
                             </div>
-                            <form role="form" name="formCbProductor" method="post" action="index.php">
+                            <form role="form" name="formCbMineral" method="post" action="minerales.php">
                                 <div class="modal-body">
                                   <div class="input-group">
                                       <label for="">Id</label>
@@ -62,19 +62,16 @@
                                       <!--<small class="text-muted">Lo utilizamos como ID y se forma con los iso de idioma (es) y país (ES) unidos por un guión bajo.</small>-->
                                   </div>
                                     <div class="input-group">
-                                        <label for="codigo">Codigo</label>
-                                        <input type="text" class="form-control" id="codigo" name="codigo" placeholder="codigo" >
+                                        <label for="descripcion">Descripcion</label>
+                                        <input type="text" class="form-control" id="descripcion" name="descripcion" placeholder="descripcion" >
                                         <!--<small class="text-muted">Lo utilizamos como ID y se forma con los iso de idioma (es) y país (ES) unidos por un guión bajo.</small>-->
-                                    </div>
-                                    <div class="input-group">
-                                        <label for="nombre">Nombre</label>
-                                        <input type="text" class="form-control" id="nombre" name="nombre" placeholder="nombre"> <!-- aria-describedby="sizing-addon2">-->
                                     </div>
                                 </div>
                                 <div class="modal-footer">
-                                    <button id="save-language" name="save-language" type="submit" class="btn btn-primary">Guardar</button>
-		                                  <button id="update-language" name="update-language" type="submit" class="btn btn-primary">Actualizar</button>
-                                    <button id="cancel"type="button" class="btn btn-default" data-dismiss="modal">Cerrar</button>
+                                    <!--<button id="save-language" name="save-language" type="submit" class="btn btn-primary">Guardar</button>-->
+                                    <button id="save-language" name="save-language" type="submit" class="btn">Guardar</button>
+		                            <button id="update-language" name="update-language" type="submit" class="btn btn-primary">Actualizar</button>
+                                    <button id="cancel" type="button" class="btn btn-default" data-dismiss="modal">Cerrar</button>
                                 </div>
                             </form>
                         </div><!-- /.modal-content -->
@@ -87,24 +84,24 @@
         	        <div class="modal-content">
                 	    <div class="modal-header">
                         	<button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
-	                        <h4 class="modal-title" id="myModalDeleteLabel">Eliminación de Productor</h4>
+	                        <h4 class="modal-title" id="myModalDeleteLabel">Eliminación de Mineral</h4>
         	            </div>
-                	    <form role="form" name="formDeleteCbProductor" method="post" action="index.php">
+                	    <form role="form" name="formDeleteCbMineral" method="post" action="minerales.php">
                         	<div class="modal-body">
                                 	<div class="input-group">
-	                                    <label for="idProductor">¿Se va a eliminar el registro del productor seleccionado?</label>
+	                                    <label for="Mineral">¿Se va a eliminar el registro del mineral seleccionado?</label>
         	                        </div>
                		                <div class="input-group">
-         	                      	    <label for="idProductor">Id productor</label>
-                	                    <input type="text" readonly class="form-control" id="idproductordelete" name="idproductordelete" readonly>
+         	                      	    <label for="idMineral">Id Mineral</label>
+                	                    <input type="text" readonly class="form-control" id="idmineraldelete" name="idmineraldelete" readonly>
                         	        </div>
                                   <div class="input-group">
-                                      <label for="nombre">Nombre</label>
-                                      <input type="text" readonly class="form-control" id="nombre" name="nombre" > <!-- aria-describedby="sizing-addon2">-->
+                                      <label for="nombre">Descripcion</label>
+                                      <input type="text" readonly class="form-control" id="descripcion" name="descripcion" > <!-- aria-describedby="sizing-addon2">-->
                                   </div>
 	                        </div>
         	                <div class="modal-footer">
-                	                <button id="delete-productor-select" name="delete-productor-select" type="submit" class="btn btn-primary">Aceptar</button>
+                	                <button id="delete-mineral-select" name="delete-mineral-select" type="submit" class="btn btn-primary">Aceptar</button>
                         	        <button id="cancel" type="button" class="btn btn-default" data-dismiss="modal">Cerrar</button>
 	                        </div>
         	            </form>
@@ -140,8 +137,8 @@
             <div class="row">
                 <div class="col-sm-3 col-md-2 sidebar">
                     <ul class="nav nav-sidebar">
-                        <li class="active"><a href="#">Productores <span class="sr-only">(current)</span></a></li>
-                        <li><a href="">Minerales</a></li>
+                        <li><a href="index.php">Productores </a></li>
+                        <li class="active"><a href="minerales.php">Minerales<span class="sr-only">(current)</span></a></li>
                         <li><a href="">Derechos</a></li>
 			            <li><a href="">Estados</a></li>
 			            <li><a href="">Canteras</a></li>
@@ -150,58 +147,57 @@
                 <div class="col-sm-9 col-sm-offset-3 col-md-10 col-md-offset-2 main">
                     <h1 class="page-header">Dashboard</h1>
 
-                    <h2 class="sub-header">Productores</h2>
+                    <h2 class="sub-header">Minerales</h2>
 
         <?php
               include 'database/DatabaseConnect.php';
-	          include 'database/CbProductorController.php';
+	          include 'database/CbMineralController.php';
 
  	          $dConnect = new DatabaseConnect;
 	          $cdb = $dConnect->dbConnectSimple();
-	          $CbProductorController = new CbProductorController();
-	          $CbProductorController->cdb = $cdb;
+	          $CbMineralController = new CbMineralController();
+	          $CbMineralController->cdb = $cdb;
 
             if (isset($_POST["save-language"]) || isset($_POST["update-language"]) ) {
         	     $id = $_POST['id'];
-        	     $codigo = $_POST['codigo'];
-        	     $nombre  = $_POST['nombre'];
+        	     $descripcion = $_POST['descripcion'];
         	if (isset($_POST["save-language"])){
-        	    $CbProductorController->create($codigo, $nombre);
+        	    $CbMineralController->create($descripcion);
         	}else{
-        	    $CbProductorController->update($codigo, $nombre, $id);
+        	    $CbMineralController->update($id,$descripcion);
         	}
              }
 
-	     if (isset($_POST["delete-productor-select"]) ) {
- 	        $id = $_POST['idproductordelete'];
+	     if (isset($_POST["delete-mineral-select"]) ) {
+ 	        $id = $_POST['idmineraldelete'];
           $fp = fopen("/tmp/logphp.txt", "w");
           fputs($fp, "Id = ".$id."\n");
           $fp = fclose($fp);
-		      $CbProductorController->delete($id);
+		      $CbMineralController->delete($id);
 	     }
 
         ?>
 	<!-- Añadimos un botón para el diálogo modal -->
-	<button type="button" class="btn btn-lg btn-primary" data-toggle="modal" data-target="#myModal" onclick='newCbLanguage()'>NUEVO</button>
+	<button type="button" class="btn btn-lg btn-primary" data-toggle="modal" data-target="#myModal" onclick='newCbMineral()'>NUEVO</button>
          <div class="table-responsive">
                         <table class="table table-striped">
                             <thead>
                                 <tr>
-                                    <th>CODIGO</th>
-                                    <th>NOMBRE</th>
+                                    <th>ID</th>
+                                    <th>DESCRIPCION</th>
                                 </tr>
                             </thead>
                             <tbody>
-                                <form role="form" name="formListCbLanguage" method="post" action="index.php">
+                                <form role="form" name="formListCbLanguage" method="post" action="minerales.php">
                                 <?php
                                 try {
-                                    $rows = $CbProductorController->readAll();
+                                    $rows = $CbMineralController->readAll();
 
                                     foreach ($rows as $row) {
                                 ?>
                                         <tr>
-                                            <td><?php print($row->codigo); ?></td>
-                                            <td><?php print($row->nombre); ?></td>
+                                            <td><?php print($row->id); ?></td>
+                                            <td><?php print($row->descripcion); ?></td>
                                             <td>
 						<button id="see-language"
 							name="see-language"
@@ -209,10 +205,9 @@
 							class="btn btn-success"
 							data-toggle="modal"
 							data-target="#myModal"
-							onclick="openCbProductor('see',
+							onclick="openCbMineral('see',
 								    '<?php print($row->id); ?>',
-										'<?php print($row->codigo); ?>',
-										'<?php print($row->nombre); ?>')">Ver</button>
+										'<?php print($row->descripcion); ?>')">Ver</button>
 					    </td>
 					    <td>
 						<button id="edit-language"
@@ -221,12 +216,11 @@
 						        class="btn btn-primary"
 						        data-toggle="modal"
 						        data-target="#myModal"
-						        onclick="openCbProductor('edit',
+						        onclick="openCbMineral('edit',
 									 '<?php print($row->id); ?>',
-							                 '<?php print($row->codigo); ?>',
-									 '<?php print($row->nombre); ?>')"
+							         '<?php print($row->descripcion); ?>')"
 							>Editar</button>
-					    </td>
+					    </td>  
 				            <td>
 					    	<button id="delete-language-modal"
 							name="delete-language-modal"
@@ -234,7 +228,7 @@
 			                                class="btn btn-danger"
                         			        data-toggle="modal"
 			                                data-target="#myModalDelete"
-                        			        onclick="deleteCbProductor('<?php print($row->id); ?>','<?php print($row->nombre); ?>')"
+                        			        onclick="deleteCbMineral('<?php print($row->id); ?>','<?php print($row->nombre); ?>')"
 						>Eliminar</button>
 					   </td>
 

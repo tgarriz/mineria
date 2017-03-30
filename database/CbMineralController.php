@@ -36,7 +36,7 @@ class CbMineralController {
       try {
         $this->cdb->exec($sqlInsert);
       } catch (PDOException $pdoException) {
-        echo ' - Error crear un nuevo elemento productor en create(...): '.$pdoException->getMessage();
+        echo ' - Error crear un nuevo elemento mineral en create(...): '.$pdoException->getMessage();
         exit();
       }
     }
@@ -48,13 +48,13 @@ class CbMineralController {
  * @param type $codigo
  * @param type $nombre
  */
-   public function update($descripcion){
-    $sqlUpdate = "UPDATE mineral SET descripcion = ".$descripcion.";";
+   public function update($id,$descripcion){
+    $sqlUpdate = "UPDATE mineral SET descripcion = '".$descripcion."' where id = ".$id.";";
     try {
         $this->cdb->exec($sqlUpdate);
     } catch (PDOException $pdoException) {
         echo $sqlUpdate;
-        echo '- Error actualizar un nuevo elemento productor en update(...): '.$pdoException->getMessage();
+        echo '- Error actualizar un nuevo elemento mineral en update(...): '.$pdoException->getMessage();
         exit();
     }
    }
