@@ -9,7 +9,7 @@
         <meta name="author" content="">
         <link rel="icon" href="favicon.ico">
 
-        <title>Minería</title>
+        <title>CRUD - Minería</title>
 
         <!-- Bootstrap core CSS -->
         <link href="css/bootstrap.min.css" rel="stylesheet">
@@ -54,7 +54,7 @@
                                 <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
                                 <h4 class="modal-title" id="myModalLabel"></h4>
                             </div>
-                            <form role="form" name="formCbMineral" method="post" action="minerales.php">
+                            <form role="form" name="formCbDerecho" method="post" action="derechos.php">
                                 <div class="modal-body">
                                   <div class="input-group">
                                       <label for="">Id</label>
@@ -62,16 +62,19 @@
                                       <!--<small class="text-muted">Lo utilizamos como ID y se forma con los iso de idioma (es) y país (ES) unidos por un guión bajo.</small>-->
                                   </div>
                                     <div class="input-group">
-                                        <label for="descripcion">Descripcion</label>
-                                        <input type="text" class="form-control" id="descripcion" name="descripcion" placeholder="descripcion" >
+                                        <label for="codigo">Codigo</label>
+                                        <input type="text" class="form-control" id="codigo" name="codigo" placeholder="codigo" >
                                         <!--<small class="text-muted">Lo utilizamos como ID y se forma con los iso de idioma (es) y país (ES) unidos por un guión bajo.</small>-->
+                                    </div>
+                                    <div class="input-group">
+                                        <label for="descripcion">Descripcion</label>
+                                        <input type="text" class="form-control" id="descripcion" name="descripcion" placeholder="descripcion"> <!-- aria-describedby="sizing-addon2">-->
                                     </div>
                                 </div>
                                 <div class="modal-footer">
-                                    <!--<button id="save-language" name="save-language" type="submit" class="btn btn-primary">Guardar</button>-->
-                                    <button id="save-language" name="save-language" type="submit" class="btn">Guardar</button>
-		                            <button id="update-language" name="update-language" type="submit" class="btn btn-primary">Actualizar</button>
-                                    <button id="cancel" type="button" class="btn btn-default" data-dismiss="modal">Cerrar</button>
+                                    <button id="save-language" name="save-language" type="submit" class="btn btn-primary">Guardar</button>
+		                                  <button id="update-language" name="update-language" type="submit" class="btn btn-primary">Actualizar</button>
+                                    <button id="cancel"type="button" class="btn btn-default" data-dismiss="modal">Cerrar</button>
                                 </div>
                             </form>
                         </div><!-- /.modal-content -->
@@ -84,24 +87,24 @@
         	        <div class="modal-content">
                 	    <div class="modal-header">
                         	<button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
-	                        <h4 class="modal-title" id="myModalDeleteLabel">Eliminación de Mineral</h4>
+	                        <h4 class="modal-title" id="myModalDeleteLabel">Eliminación de Derecho</h4>
         	            </div>
-                	    <form role="form" name="formDeleteCbMineral" method="post" action="minerales.php">
+                	    <form role="form" name="formDeleteCbDerecho" method="post" action="derechos.php">
                         	<div class="modal-body">
                                 	<div class="input-group">
-	                                    <label for="Mineral">¿Se va a eliminar el registro del mineral seleccionado?</label>
+	                                    <label for="idDerecho">¿Se va a eliminar el registro del Derecho seleccionado?</label>
         	                        </div>
                		                <div class="input-group">
-         	                      	    <label for="idMineral">Id Mineral</label>
-                	                    <input type="text" readonly class="form-control" id="idmineraldelete" name="idmineraldelete" readonly>
+         	                      	    <label for="idDerecho">Id Derecho</label>
+                	                    <input type="text" readonly class="form-control" id="idderechodelete" name="idderechodelete" readonly>
                         	        </div>
                                   <div class="input-group">
-                                      <label for="nombre">Descripcion</label>
+                                      <label for="descripcion">Descripcion</label>
                                       <input type="text" readonly class="form-control" id="descripcion" name="descripcion" > <!-- aria-describedby="sizing-addon2">-->
                                   </div>
 	                        </div>
         	                <div class="modal-footer">
-                	                <button id="delete-mineral-select" name="delete-mineral-select" type="submit" class="btn btn-primary">Aceptar</button>
+                	                <button id="delete-derecho-select" name="delete-derecho-select" type="submit" class="btn btn-primary">Aceptar</button>
                         	        <button id="cancel" type="button" class="btn btn-default" data-dismiss="modal">Cerrar</button>
 	                        </div>
         	            </form>
@@ -119,12 +122,11 @@
                         <span class="icon-bar"></span>
                         <span class="icon-bar"></span>
                     </button>
-                    <a class="navbar-brand" href="#">PHP Customerdb</a>
+                    <a class="navbar-brand" href="#">Administrador Elementos de Minería</a>
                 </div>
                 <div id="navbar" class="navbar-collapse collapse">
                     <ul class="nav navbar-nav navbar-right">
                         <li><a href="#">Dashboard</a></li>
-                        <li><a href="#">Ayuda</a></li>
                     </ul>
                     <form class="navbar-form navbar-right">
                         <input type="text" class="form-control" placeholder="Search...">
@@ -137,66 +139,67 @@
             <div class="row">
                 <div class="col-sm-3 col-md-2 sidebar">
                     <ul class="nav nav-sidebar">
-                        <li><a href="index.php">Productores </a></li>
-                        <li class="active"><a href="minerales.php">Minerales<span class="sr-only">(current)</span></a></li>
-                        <li><a href="derechos.php">Derechos</a></li>
-			                  <li><a href="">Estados</a></li>
-			                  <li><a href="">Canteras</a></li>
+                        <li><a href="index.php">Productores</a></li>
+                        <li><a href="minerales.php">Minerales</a></li>
+                        <li class="active"><a href="#">Derechos<span class="sr-only">(current)</span></a></li>
+			            <li><a href="">Estados</a></li>
+			            <li><a href="">Canteras</a></li>
                     </ul>
                 </div>
                 <div class="col-sm-9 col-sm-offset-3 col-md-10 col-md-offset-2 main">
-                    <h1 class="page-header">Dashboard</h1>
+                    <h1 class="page-header">Minería</h1>
 
-                    <h2 class="sub-header">Minerales</h2>
+                    <h2 class="sub-header">Derechos</h2>
 
         <?php
               include 'database/DatabaseConnect.php';
-	          include 'database/CbMineralController.php';
+	          include 'database/CbDerechoController.php';
 
  	          $dConnect = new DatabaseConnect;
 	          $cdb = $dConnect->dbConnectSimple();
-	          $CbMineralController = new CbMineralController();
-	          $CbMineralController->cdb = $cdb;
+	          $CbDerechoController = new CbDerechoController();
+	          $CbDerechoController->cdb = $cdb;
 
             if (isset($_POST["save-language"]) || isset($_POST["update-language"]) ) {
         	     $id = $_POST['id'];
-        	     $descripcion = $_POST['descripcion'];
+        	     $codigo = $_POST['codigo'];
+        	     $nombre = $_POST['descripcion'];
         	if (isset($_POST["save-language"])){
-        	    $CbMineralController->create($descripcion);
+        	    $CbDerechoController->create($codigo, $descripcion);
         	}else{
-        	    $CbMineralController->update($id,$descripcion);
+        	    $CbDerechoController->update($codigo, $descripcion, $id);
         	}
              }
 
-	     if (isset($_POST["delete-mineral-select"]) ) {
- 	        $id = $_POST['idmineraldelete'];
+	     if (isset($_POST["deleteCbDerecho-select"]) ) {
+ 	        $id = $_POST['idderechodelete'];
           $fp = fopen("/tmp/logphp.txt", "w");
           fputs($fp, "Id = ".$id."\n");
           $fp = fclose($fp);
-		      $CbMineralController->delete($id);
+		      $CbDerechoController->delete($id);
 	     }
 
         ?>
 	<!-- Añadimos un botón para el diálogo modal -->
-	<button type="button" class="btn btn-lg btn-primary" data-toggle="modal" data-target="#myModal" onclick='newCbMineral()'>NUEVO</button>
+	<button type="button" class="btn btn-lg btn-primary" data-toggle="modal" data-target="#myModal" onclick='newCbDerecho()'>NUEVO</button>
          <div class="table-responsive">
                         <table class="table table-striped">
                             <thead>
                                 <tr>
-                                    <th>ID</th>
+                                    <th>CODIGO</th>
                                     <th>DESCRIPCION</th>
                                 </tr>
                             </thead>
                             <tbody>
-                                <form role="form" name="formListCbLanguage" method="post" action="minerales.php">
+                                <form role="form" name="formListCbLanguage" method="post" action="derechos.php">
                                 <?php
                                 try {
-                                    $rows = $CbMineralController->readAll();
+                                    $rows = $CbDerechoController->readAll();
 
                                     foreach ($rows as $row) {
                                 ?>
                                         <tr>
-                                            <td><?php print($row->id); ?></td>
+                                            <td><?php print($row->codigo); ?></td>
                                             <td><?php print($row->descripcion); ?></td>
                                             <td>
 						<button id="see-language"
@@ -205,8 +208,9 @@
 							class="btn btn-success"
 							data-toggle="modal"
 							data-target="#myModal"
-							onclick="openCbMineral('see',
+							onclick="openCbDerecho('see',
 								    '<?php print($row->id); ?>',
+										'<?php print($row->codigo); ?>',
 										'<?php print($row->descripcion); ?>')">Ver</button>
 					    </td>
 					    <td>
@@ -216,9 +220,10 @@
 						        class="btn btn-primary"
 						        data-toggle="modal"
 						        data-target="#myModal"
-						        onclick="openCbMineral('edit',
+						        onclick="openCbDerecho('edit',
 									 '<?php print($row->id); ?>',
-							         '<?php print($row->descripcion); ?>')"
+				           '<?php print($row->codigo); ?>',
+									 '<?php print($row->descripcion); ?>')"
 							>Editar</button>
 					    </td>
 				            <td>
@@ -228,7 +233,7 @@
 			                                class="btn btn-danger"
                         			        data-toggle="modal"
 			                                data-target="#myModalDelete"
-                        			        onclick="deleteCbMineral('<?php print($row->id); ?>','<?php print($row->nombre); ?>')"
+                        			        onclick="deleteCbDerecho('<?php print($row->id); ?>','<?php print($row->codigo); ?>','<?php print($row->descripcion); ?>')"
 						>Eliminar</button>
 					   </td>
 

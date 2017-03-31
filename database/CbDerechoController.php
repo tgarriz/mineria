@@ -9,14 +9,14 @@
  * @author Xules Puedes seguirme en mi web http://www.codigoxules.org).
  * You can follow me on my website http://www.codigoxules.org/en
  */
-class CbMineralController {
+class CbDerechoController {
     var $cdb = null;
     /**
      * Devolvemos todos los resultados de la consulta sobre cb_language.
      * We return all the results of the query on cb_language.
      */
     public function readAll(){
-        $query = "SELECT * FROM mineral;";
+        $query = "SELECT * FROM tipo_derecho;";
         $statement = $this->cdb->prepare($query);
         $statement->execute();
         $rows = $statement->fetchAll(\PDO::FETCH_OBJ);
@@ -28,15 +28,15 @@ class CbMineralController {
  * We create a new language with parameters .
  * @param type $id
  * @param type $codigo
- * @param type $nombre
+ * @param type $descripcion
  */
-    function create($descripcion){
-      $sqlInsert = "INSERT INTO mineral (descripcion)"
-             . "    VALUES ('".$descripcion."')";
+    function create($codigo, $descripcion){
+      $sqlInsert = "INSERT INTO tipo_derecho(codigo, descripcion)"
+             . "    VALUES ('".$codigo."', '".$descripcion."')";
       try {
         $this->cdb->exec($sqlInsert);
       } catch (PDOException $pdoException) {
-        echo ' - Error crear un nuevo elemento mineral en create(...): '.$pdoException->getMessage();
+        echo 'Error crear un nuevo elemento derecho en create(...): '.$pdoException->getMessage();
         exit();
       }
     }
@@ -46,15 +46,15 @@ class CbMineralController {
  * We update the values of the language we passed on the $idlanguage parameter.
  * @param type $id
  * @param type $codigo
- * @param type $nombre
+ * @param type $descripcion
  */
-   public function update($id,$descripcion){
-    $sqlUpdate = "UPDATE mineral SET descripcion = '".$descripcion."' where id = ".$id.";";
+   public function update($codigo, $descripcion, $id){
+    $sqlUpdate = "UPDATE tipo_derecho SET codigo = ".$codigo.", nombre = '".$descripcion."' WHERE  id  = ".$id.";";
     try {
         $this->cdb->exec($sqlUpdate);
     } catch (PDOException $pdoException) {
         echo $sqlUpdate;
-        echo '- Error actualizar un nuevo elemento mineral en update(...): '.$pdoException->getMessage();
+        echo 'Error actualizar un nuevo elemento derecho en update(...): '.$pdoException->getMessage();
         exit();
     }
    }
@@ -66,11 +66,11 @@ class CbMineralController {
  */
    public function delete($id){
     $sqlDelete =
-        "DELETE FROM mineral WHERE  id = ".$id.";";
+        "DELETE FROM tipo_derecho WHERE id = ".$id.";";
     try {
         $this->cdb->exec($sqlDelete);
     } catch (Exception $exception) {
-        echo ' - Error al eliminar un mineral en la función delete(...): '.$exception->getMessage();
+        echo ' - Error al eliminar un derecho en la función delete(...): '.$exception->getMessage();
         exit();
     }
    }

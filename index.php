@@ -80,7 +80,7 @@
                         </div><!-- /.modal-content -->
                     </div><!-- /.modal-dialog -->
                 </div><!-- /.modal -->
-        
+
 		<!-- Modal DELETE -->
 		<div class="modal fade" id="myModalDelete" tabindex="-1" role="dialog" aria-labelledby="myModalDeleteLabel">
 	            <div class="modal-dialog" role="document">
@@ -111,7 +111,7 @@
                 	</div><!-- /.modal-content -->
 	            </div><!-- /.modal-dialog -->
         	</div><!-- /.modal -->
-        
+
         <nav class="navbar navbar-inverse navbar-fixed-top">
             <div class="container-fluid">
                 <div class="navbar-header">
@@ -141,8 +141,8 @@
                 <div class="col-sm-3 col-md-2 sidebar">
                     <ul class="nav nav-sidebar">
                         <li class="active"><a href="#">Productores <span class="sr-only">(current)</span></a></li>
-                        <li><a href="">Minerales</a></li>
-                        <li><a href="">Derechos</a></li>
+                        <li><a href="minerales.php">Minerales</a></li>
+                        <li><a href="derechos.php">Derechos</a></li>
 			            <li><a href="">Estados</a></li>
 			            <li><a href="">Canteras</a></li>
                     </ul>
@@ -164,7 +164,7 @@
             if (isset($_POST["save-language"]) || isset($_POST["update-language"]) ) {
         	     $id = $_POST['id'];
         	     $codigo = $_POST['codigo'];
-        	     $nombre  = $_POST['nombre'];
+        	     $nombre = $_POST['nombre'];
         	if (isset($_POST["save-language"])){
         	    $CbProductorController->create($codigo, $nombre);
         	}else{
@@ -223,7 +223,7 @@
 						        data-target="#myModal"
 						        onclick="openCbProductor('edit',
 									 '<?php print($row->id); ?>',
-							                 '<?php print($row->codigo); ?>',
+				           '<?php print($row->codigo); ?>',
 									 '<?php print($row->nombre); ?>')"
 							>Editar</button>
 					    </td>

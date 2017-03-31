@@ -8,6 +8,11 @@
         $('#myInput').focus()
     });
   }
+  function newDerecho(){
+    $('#myModal').on('shown.bs.modal', function () {
+        $('#myInput').focus()
+    });
+  }
   function newMineral(){
     $('#myModal').on('shown.bs.modal', function () {
         $('#myInput').focus()
@@ -22,8 +27,12 @@ function newCbProductor(){
     openCbProductor('new', null, null, null, null);
 }
 
+function newCbDerecho(){
+    openCbDerecho('new', null, null, null);
+}
+
 function newCbMineral(){
-    openCbProductor('new', null);
+    openCbMineral('new', null,null);
 }
 /**
  * Abrimos la ventana modal teniendo en cuenta la acción (action) para
@@ -93,6 +102,35 @@ function openCbMineral(action, id, descripcion){
     });
 }
 
+function openCbDerecho(action, id, codigo, descripcion){
+    document.formCbDerecho.id.value = id;
+    document.formCbDerecho.codigo.value = codigo;
+    document.formCbDerecho.descripcion.value = descripcion;
+
+    document.formCbDerecho.id.disabled = (action === 'see')?true:false;
+    document.formCbDerecho.codigo.disabled = (action === 'see')?true:false;
+    document.formCbDerecho.descripcion.disabled = (action === 'see')?true:false;
+
+    $('#myModal').on('shown.bs.modal', function () {
+        var modal = $(this);
+        if (action === 'new'){
+            modal.find('.modal-title').text('Creación de Derecho');
+            $('#save-language').show();
+            $('#update-language').hide();
+        }else if (action === 'edit'){
+            modal.find('.modal-title').text('Actualizar Derecho');
+            $('#save-language').hide();
+            $('#update-language').show();
+        }else if (action === 'see'){
+            modal.find('.modal-title').text('Ver Derecho');
+            $('#save-language').hide();
+            $('#update-language').hide();
+        }
+        //$('#idlanguage').focus()
+
+    });
+}
+
 /**
 * Para borrar el idioma seleccionado abrimos una ventana modal para
 * que el usuario confirme si quiere eliminar el registro.
@@ -109,6 +147,16 @@ function openCbMineral(action, id, descripcion){
     $('#myModalDelete').on('shown.bs.modal', function () {
       $('#myInput').focus();
   });
+}
+function deleteCbDerecho(id,codigo,descripcion){
+  alert('entro');
+  document.formDeleteCbDerecho.idproductordelete.value = id;
+  document.formDeleteCbDerecho.codigo.value = codigo;
+  document.formDeleteCbDerecho.descripcion.value = descripcion;
+  alert(id);
+  $('#myModalDelete').on('shown.bs.modal', function () {
+    $('#myInput').focus();
+});
 }
   function deleteCbMineral(id,descripcion){
     alert('entro');
