@@ -16,7 +16,7 @@ class CbProductorController {
      * We return all the results of the query on cb_language.
      */
     public function readAll(){
-        $query = "SELECT * FROM productor;";
+        $query = "SELECT * FROM mineria.productor;";
         $statement = $this->cdb->prepare($query);
         $statement->execute();
         $rows = $statement->fetchAll(\PDO::FETCH_OBJ);
@@ -31,7 +31,7 @@ class CbProductorController {
  * @param type $nombre
  */
     function create($codigo, $nombre){
-      $sqlInsert = "INSERT INTO productor(codigo, nombre)"
+      $sqlInsert = "INSERT INTO mineria.productor(codigo, nombre)"
              . "    VALUES ('".$codigo."', '".$nombre."')";
       try {
         $this->cdb->exec($sqlInsert);
@@ -49,7 +49,7 @@ class CbProductorController {
  * @param type $nombre
  */
    public function update($codigo, $nombre, $id){
-    $sqlUpdate = "UPDATE productor SET codigo = ".$codigo.", nombre = '".$nombre."' WHERE  id  = ".$id.";";
+    $sqlUpdate = "UPDATE mineria.productor SET codigo = ".$codigo.", nombre = '".$nombre."' WHERE  id  = ".$id.";";
     try {
         $this->cdb->exec($sqlUpdate);
     } catch (PDOException $pdoException) {
@@ -66,7 +66,7 @@ class CbProductorController {
  */
    public function delete($id){
     $sqlDelete =
-        "DELETE FROM productor"
+        "DELETE FROM mineria.productor"
         . "     WHERE   id = ".$id.";";
     try {
         $this->cdb->exec($sqlDelete);

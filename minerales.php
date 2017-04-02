@@ -43,6 +43,38 @@
     </head>
 
     <body>
+      <!--
+            Update
+            Creamos una ventana Modal que utilizaremos para crear un nuevo idioma, actualizarlo o mostrarlo.
+            We create a modal window used to create a new language, update or display.-->
+                <div class="modal fade" id="myModalUpdate" tabindex="-1" role="dialog" aria-labelledby="myModalLabel">
+                    <div class="modal-dialog" role="document">
+                        <div class="modal-content">
+                            <div class="modal-header">
+                                <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+                                <h4 class="modal-title" id="myModalUpdateLabel"></h4>
+                            </div>
+                            <form role="form" name="formEditMineral" method="post" action="minerales.php">
+                                <div class="modal-body">
+                                  <div class="input-group">
+                                      <label for="id">Id</label>
+                                      <input type="text" readonly class="form-control" id="id" name="id" >
+                                      <!--<small class="text-muted">Lo utilizamos como ID y se forma con los iso de idioma (es) y país (ES) unidos por un guión bajo.</small>-->
+                                  </div>
+                                    <div class="input-group">
+                                        <label for="descripcion">Descripcion</label>
+                                        <input type="text" class="form-control" id="descripcion" name="descripcion" placeholder="descripcion" >
+                                        <!--<small class="text-muted">Lo utilizamos como ID y se forma con los iso de idioma (es) y país (ES) unidos por un guión bajo.</small>-->
+                                    </div>
+                                </div>
+                                <div class="modal-footer">
+		                                <button id="update-language" name="update-language" type="submit" class="btn btn-primary">Actualizar</button>
+                                    <button id="cancel" type="button" class="btn btn-default" data-dismiss="modal">Cerrar</button>
+                                </div>
+                            </form>
+                        </div><!-- /.modal-content -->
+                    </div><!-- /.modal-dialog -->
+                </div><!-- /.modal -->
     	<!--
             Create - Read - Update
             Creamos una ventana Modal que utilizaremos para crear un nuevo idioma, actualizarlo o mostrarlo.
@@ -57,8 +89,8 @@
                             <form role="form" name="formCbMineral" method="post" action="minerales.php">
                                 <div class="modal-body">
                                   <div class="input-group">
-                                      <label for="">Id</label>
-                                      <input type="text" class="form-control" id="id" name="id" disabled >
+                                      <label for="id">Id</label>
+                                      <input type="text" readonly class="form-control" id="id" name="id" disabled >
                                       <!--<small class="text-muted">Lo utilizamos como ID y se forma con los iso de idioma (es) y país (ES) unidos por un guión bajo.</small>-->
                                   </div>
                                     <div class="input-group">
@@ -70,7 +102,6 @@
                                 <div class="modal-footer">
                                     <!--<button id="save-language" name="save-language" type="submit" class="btn btn-primary">Guardar</button>-->
                                     <button id="save-language" name="save-language" type="submit" class="btn">Guardar</button>
-		                            <button id="update-language" name="update-language" type="submit" class="btn btn-primary">Actualizar</button>
                                     <button id="cancel" type="button" class="btn btn-default" data-dismiss="modal">Cerrar</button>
                                 </div>
                             </form>
@@ -161,11 +192,11 @@
             if (isset($_POST["save-language"]) || isset($_POST["update-language"]) ) {
         	     $id = $_POST['id'];
         	     $descripcion = $_POST['descripcion'];
-        	if (isset($_POST["save-language"])){
-        	    $CbMineralController->create($descripcion);
-        	}else{
-        	    $CbMineralController->update($id,$descripcion);
-        	}
+        	     if (isset($_POST["save-language"])){
+        	        $CbMineralController->create($descripcion);
+        	     }else{
+        	        $CbMineralController->update($id,$descripcion);
+        	     }
              }
 
 	     if (isset($_POST["delete-mineral-select"]) ) {
@@ -215,11 +246,9 @@
 							type="button"
 						        class="btn btn-primary"
 						        data-toggle="modal"
-						        data-target="#myModal"
-						        onclick="openCbMineral('edit',
-									 '<?php print($row->id); ?>',
-							         '<?php print($row->descripcion); ?>')"
-							>Editar</button>
+						        data-target="#myModalUpdate"
+						        onclick="openEditMineral('<?php print($row->id); ?>',
+							         '<?php print($row->descripcion); ?>')">Editar</button>
 					    </td>
 				            <td>
 					    	<button id="delete-language-modal"

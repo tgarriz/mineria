@@ -43,8 +43,45 @@
     </head>
 
     <body>
+      <!--
+            Update
+            Creamos una ventana Modal que utilizaremos para crear un nuevo idioma, actualizarlo o mostrarlo.
+            We create a modal window used to create a new language, update or display.-->
+                <div class="modal fade" id="myModalUpdate" tabindex="-1" role="dialog" aria-labelledby="myModalLabel">
+                    <div class="modal-dialog" role="document">
+                        <div class="modal-content">
+                            <div class="modal-header">
+                                <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+                                <h4 class="modal-title" id="myModalUpdateLabel"></h4>
+                            </div>
+                            <form role="form" name="formEdit" method="post" action="index.php">
+                                <div class="modal-body">
+                                  <div class="input-group">
+                                      <label for="id">Id</label>
+                                      <input type="text" readonly class="form-control" id="id" name="id" >
+                                      <!--<small class="text-muted">Lo utilizamos como ID y se forma con los iso de idioma (es) y país (ES) unidos por un guión bajo.</small>-->
+                                  </div>
+                                  <div class="input-group">
+                                      <label for="codigo">Codigo</label>
+                                      <input type="text" class="form-control" id="codigo" name="codigo" placeholder="codigo" >
+                                      <!--<small class="text-muted">Lo utilizamos como ID y se forma con los iso de idioma (es) y país (ES) unidos por un guión bajo.</small>-->
+                                  </div>
+                                    <div class="input-group">
+                                        <label for="nombre">Nombre</label>
+                                        <input type="text" class="form-control" id="nombre" name="nombre" placeholder="nombre" >
+                                        <!--<small class="text-muted">Lo utilizamos como ID y se forma con los iso de idioma (es) y país (ES) unidos por un guión bajo.</small>-->
+                                    </div>
+                                </div>
+                                <div class="modal-footer">
+		                                <button id="update-language" name="update-language" type="submit" class="btn btn-primary">Actualizar</button>
+                                    <button id="cancel" type="button" class="btn btn-default" data-dismiss="modal">Cerrar</button>
+                                </div>
+                            </form>
+                        </div><!-- /.modal-content -->
+                    </div><!-- /.modal-dialog -->
+                </div><!-- /.modal -->
     	<!--
-            Create - Read - Update
+            Create - Read
             Creamos una ventana Modal que utilizaremos para crear un nuevo idioma, actualizarlo o mostrarlo.
             We create a modal window used to create a new language, update or display.-->
                 <div class="modal fade" id="myModal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel">
@@ -73,7 +110,6 @@
                                 </div>
                                 <div class="modal-footer">
                                     <button id="save-language" name="save-language" type="submit" class="btn btn-primary">Guardar</button>
-		                                  <button id="update-language" name="update-language" type="submit" class="btn btn-primary">Actualizar</button>
                                     <button id="cancel"type="button" class="btn btn-default" data-dismiss="modal">Cerrar</button>
                                 </div>
                             </form>
@@ -220,14 +256,12 @@
 							type="button"
 						        class="btn btn-primary"
 						        data-toggle="modal"
-						        data-target="#myModal"
-						        onclick="openCbProductor('edit',
-									 '<?php print($row->id); ?>',
+						        data-target="#myModalUpdate"
+						        onclick="openEditProductor('<?php print($row->id); ?>',
 				           '<?php print($row->codigo); ?>',
-									 '<?php print($row->nombre); ?>')"
-							>Editar</button>
+									 '<?php print($row->nombre); ?>')">Editar</button>
 					    </td>
-				            <td>
+				      <td>
 					    	<button id="delete-language-modal"
 							name="delete-language-modal"
 							type="button"

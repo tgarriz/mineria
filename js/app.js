@@ -46,6 +46,19 @@ function newCbMineral(){
  * @param {type} nombre
  * @returns {undefined}
  */
+
+ function openEditProductor(id, codigo, nombre){
+   alert(codigo);
+   alert(nombre);
+   document.formEdit.id.value = id;
+   document.formEdit.codigo.value = codigo;
+   document.formEdit.nombre.value = nombre;
+   $('#myModalUpdate').on('shown.bs.modal', function () {
+     var modal = $(this);
+     modal.find('.modal-title').text('Editar Productor');
+   });
+ }
+
 function openCbProductor(action, id, codigo, nombre){
     document.formCbProductor.id.value = id;
     document.formCbProductor.codigo.value = codigo;
@@ -61,10 +74,6 @@ function openCbProductor(action, id, codigo, nombre){
             modal.find('.modal-title').text('Creación de Productor');
             $('#save-language').show();
             $('#update-language').hide();
-        }else if (action === 'edit'){
-            modal.find('.modal-title').text('Actualizar Productor');
-            $('#save-language').hide();
-            $('#update-language').show();
         }else if (action === 'see'){
             modal.find('.modal-title').text('Ver Productor');
             $('#save-language').hide();
