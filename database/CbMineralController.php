@@ -16,7 +16,7 @@ class CbMineralController {
      * We return all the results of the query on cb_language.
      */
     public function readAll(){
-        $query = "SELECT * FROM mineral;";
+        $query = "SELECT * FROM mineria.mineral;";
         $statement = $this->cdb->prepare($query);
         $statement->execute();
         $rows = $statement->fetchAll(\PDO::FETCH_OBJ);
@@ -31,7 +31,7 @@ class CbMineralController {
  * @param type $nombre
  */
     function create($descripcion){
-      $sqlInsert = "INSERT INTO mineral (descripcion)"
+      $sqlInsert = "INSERT INTO mineria.mineral (descripcion)"
              . "    VALUES ('".$descripcion."')";
       try {
         $this->cdb->exec($sqlInsert);
@@ -49,7 +49,7 @@ class CbMineralController {
  * @param type $nombre
  */
    public function update($id,$descripcion){
-    $sqlUpdate = "UPDATE mineral SET descripcion = '".$descripcion."' where id = ".$id.";";
+    $sqlUpdate = "UPDATE mineria.mineral SET descripcion = '".$descripcion."' where id = ".$id.";";
     try {
         $this->cdb->exec($sqlUpdate);
     } catch (PDOException $pdoException) {
@@ -66,7 +66,7 @@ class CbMineralController {
  */
    public function delete($id){
     $sqlDelete =
-        "DELETE FROM mineral WHERE  id = ".$id.";";
+        "DELETE FROM mineria.mineral WHERE  id = ".$id.";";
     try {
         $this->cdb->exec($sqlDelete);
     } catch (Exception $exception) {

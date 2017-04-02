@@ -32,7 +32,7 @@ function newCbDerecho(){
 }
 
 function newCbMineral(){
-    openCbMineral('new', null,null);
+    openCbMineral('new',null);
 }
 /**
  * Abrimos la ventana modal teniendo en cuenta la acción (action) para
@@ -75,6 +75,18 @@ function openCbProductor(action, id, codigo, nombre){
     });
 }
 
+function openEditMineral(id, descripcion){
+  alert(id);
+  alert(descripcion);
+  document.formEditMineral.id.value = id;
+  document.formEditMineral.descripcion.value = descripcion;
+  $('#myModalUpdate').on('shown.bs.modal', function () {
+    var modal = $(this);
+    modal.find('.modal-title').text('Editar Mineral');
+    //$('#idlanguage').focus();
+  });
+}
+
 function openCbMineral(action, id, descripcion){
     document.formCbMineral.id.value = id;
     document.formCbMineral.descripcion.value = descripcion;
@@ -88,10 +100,6 @@ function openCbMineral(action, id, descripcion){
             modal.find('.modal-title').text('Creación de Mineral');
             $('#save-language').show();
             $('#update-language').hide();
-        }else if (action === 'edit'){
-            modal.find('.modal-title').text('Actualizar Mineral');
-            $('#save-language').hide();
-            $('#update-language').show();
         }else if (action === 'see'){
             modal.find('.modal-title').text('Ver Mineral');
             $('#save-language').hide();
