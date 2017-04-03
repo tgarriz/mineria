@@ -16,7 +16,7 @@ class CbDerechoController {
      * We return all the results of the query on cb_language.
      */
     public function readAll(){
-        $query = "SELECT * FROM tipo_derecho;";
+        $query = "SELECT * FROM mineria.tipo_derecho;";
         $statement = $this->cdb->prepare($query);
         $statement->execute();
         $rows = $statement->fetchAll(\PDO::FETCH_OBJ);
@@ -31,8 +31,8 @@ class CbDerechoController {
  * @param type $descripcion
  */
     function create($codigo, $descripcion){
-      $sqlInsert = "INSERT INTO tipo_derecho(codigo, descripcion)"
-             . "    VALUES ('".$codigo."', '".$descripcion."')";
+      $sqlInsert = "INSERT INTO mineria.tipo_derecho(codigo, descripcion)"
+             . "    VALUES (".$codigo.", '".$descripcion."')";
       try {
         $this->cdb->exec($sqlInsert);
       } catch (PDOException $pdoException) {
@@ -49,7 +49,7 @@ class CbDerechoController {
  * @param type $descripcion
  */
    public function update($codigo, $descripcion, $id){
-    $sqlUpdate = "UPDATE tipo_derecho SET codigo = ".$codigo.", nombre = '".$descripcion."' WHERE  id  = ".$id.";";
+    $sqlUpdate = "UPDATE mineria.tipo_derecho SET codigo = ".$codigo.", descripcion = '".$descripcion."' WHERE  id  = ".$id.";";
     try {
         $this->cdb->exec($sqlUpdate);
     } catch (PDOException $pdoException) {
@@ -66,7 +66,7 @@ class CbDerechoController {
  */
    public function delete($id){
     $sqlDelete =
-        "DELETE FROM tipo_derecho WHERE id = ".$id.";";
+        "DELETE FROM mineria.tipo_derecho WHERE id = ".$id.";";
     try {
         $this->cdb->exec($sqlDelete);
     } catch (Exception $exception) {

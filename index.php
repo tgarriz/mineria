@@ -95,7 +95,7 @@
                                 <div class="modal-body">
                                   <div class="input-group">
                                       <label for="">Id</label>
-                                      <input type="text" class="form-control" id="id" name="id" disabled >
+                                      <input type="text" readolny class="form-control" id="id" name="id">
                                       <!--<small class="text-muted">Lo utilizamos como ID y se forma con los iso de idioma (es) y país (ES) unidos por un guión bajo.</small>-->
                                   </div>
                                     <div class="input-group">
@@ -189,7 +189,7 @@
                     <h2 class="sub-header">Productores</h2>
 
         <?php
-              include 'database/DatabaseConnect.php';
+            include 'database/DatabaseConnect.php';
 	          include 'database/CbProductorController.php';
 
  	          $dConnect = new DatabaseConnect;
@@ -218,7 +218,7 @@
 
         ?>
 	<!-- Añadimos un botón para el diálogo modal -->
-	<button type="button" class="btn btn-lg btn-primary" data-toggle="modal" data-target="#myModal" onclick='newCbLanguage()'>NUEVO</button>
+	<button type="button" class="btn btn-lg btn-primary" data-toggle="modal" data-target="#myModal" onclick='newCbProductor()'>NUEVO</button>
          <div class="table-responsive">
                         <table class="table table-striped">
                             <thead>

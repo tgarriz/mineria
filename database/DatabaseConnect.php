@@ -20,9 +20,9 @@ class DatabaseConnect {
      */
     public function dbConnectSimple(){
         $dbsystem='pgsql';
-        $host='10.0.2.15';
+        $host='192.168.0.30';
         $dbname='geobasig';
-        $username='mineria_us';
+        $username='postgres';
         $passwd='calituga';
         return $this->dbConnect($dbsystem, $host, $dbname, $username, $passwd);
     }

@@ -43,8 +43,44 @@
     </head>
 
     <body>
+      <!--
+            Update
+            Creamos una ventana Modal que utilizaremos para crear un nuevo idioma, actualizarlo o mostrarlo.
+            We create a modal window used to create a new language, update or display.-->
+                <div class="modal fade" id="myModalUpdate" tabindex="-1" role="dialog" aria-labelledby="myModalLabelUpdate">
+                    <div class="modal-dialog" role="document">
+                        <div class="modal-content">
+                            <div class="modal-header">
+                                <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+                                <h4 class="modal-title" id="myModalLabel"></h4>
+                            </div>
+                            <form role="form" name="formEdit" method="post" action="derechos.php">
+                                <div class="modal-body">
+                                  <div class="input-group">
+                                      <label for="">Id</label>
+                                      <input type="text" readonly class="form-control" id="id" name="id">
+                                      <!--<small class="text-muted">Lo utilizamos como ID y se forma con los iso de idioma (es) y país (ES) unidos por un guión bajo.</small>-->
+                                  </div>
+                                    <div class="input-group">
+                                        <label for="codigo">Codigo</label>
+                                        <input type="text" class="form-control" id="codigo" name="codigo" placeholder="codigo" >
+                                        <!--<small class="text-muted">Lo utilizamos como ID y se forma con los iso de idioma (es) y país (ES) unidos por un guión bajo.</small>-->
+                                    </div>
+                                    <div class="input-group">
+                                        <label for="descripcion">Descripcion</label>
+                                        <input type="text" class="form-control" id="descripcion" name="descripcion" placeholder="descripcion"> <!-- aria-describedby="sizing-addon2">-->
+                                    </div>
+                                </div>
+                                <div class="modal-footer">
+		                                <button id="update-language" name="update-language" type="submit" class="btn btn-primary">Actualizar</button>
+                                    <button id="cancel"type="button" class="btn btn-default" data-dismiss="modal">Cerrar</button>
+                                </div>
+                            </form>
+                        </div><!-- /.modal-content -->
+                    </div><!-- /.modal-dialog -->
+                </div><!-- /.modal -->
     	<!--
-            Create - Read - Update
+            Create - Read
             Creamos una ventana Modal que utilizaremos para crear un nuevo idioma, actualizarlo o mostrarlo.
             We create a modal window used to create a new language, update or display.-->
                 <div class="modal fade" id="myModal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel">
@@ -57,8 +93,8 @@
                             <form role="form" name="formCbDerecho" method="post" action="derechos.php">
                                 <div class="modal-body">
                                   <div class="input-group">
-                                      <label for="">Id</label>
-                                      <input type="text" class="form-control" id="id" name="id" disabled >
+                                      <label for="id">Id</label>
+                                      <input type="text" readonly class="form-control" id="id" name="id" >
                                       <!--<small class="text-muted">Lo utilizamos como ID y se forma con los iso de idioma (es) y país (ES) unidos por un guión bajo.</small>-->
                                   </div>
                                     <div class="input-group">
@@ -73,7 +109,6 @@
                                 </div>
                                 <div class="modal-footer">
                                     <button id="save-language" name="save-language" type="submit" class="btn btn-primary">Guardar</button>
-		                                  <button id="update-language" name="update-language" type="submit" class="btn btn-primary">Actualizar</button>
                                     <button id="cancel"type="button" class="btn btn-default" data-dismiss="modal">Cerrar</button>
                                 </div>
                             </form>
@@ -89,15 +124,19 @@
                         	<button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
 	                        <h4 class="modal-title" id="myModalDeleteLabel">Eliminación de Derecho</h4>
         	            </div>
-                	    <form role="form" name="formDeleteCbDerecho" method="post" action="derechos.php">
+                	    <form role="form" name="formDelete" method="post" action="derechos.php">
                         	<div class="modal-body">
                                 	<div class="input-group">
-	                                    <label for="idDerecho">¿Se va a eliminar el registro del Derecho seleccionado?</label>
+	                                    <label for="id">¿Se va a eliminar el registro del Derecho seleccionado?</label>
         	                        </div>
                		                <div class="input-group">
-         	                      	    <label for="idDerecho">Id Derecho</label>
-                	                    <input type="text" readonly class="form-control" id="idderechodelete" name="idderechodelete" readonly>
+         	                      	    <label for="id">Id Derecho</label>
+                	                    <input type="text" readonly class="form-control" id="id" name="id" readonly>
                         	        </div>
+                                  <div class="input-group">
+                                      <label for="codigo">Codigo</label>
+                                      <input type="text" readonly class="form-control" id="codigo" name="codigo" > <!-- aria-describedby="sizing-addon2">-->
+                                  </div>
                                   <div class="input-group">
                                       <label for="descripcion">Descripcion</label>
                                       <input type="text" readonly class="form-control" id="descripcion" name="descripcion" > <!-- aria-describedby="sizing-addon2">-->
@@ -163,7 +202,7 @@
             if (isset($_POST["save-language"]) || isset($_POST["update-language"]) ) {
         	     $id = $_POST['id'];
         	     $codigo = $_POST['codigo'];
-        	     $nombre = $_POST['descripcion'];
+        	     $descripcion = $_POST['descripcion'];
         	if (isset($_POST["save-language"])){
         	    $CbDerechoController->create($codigo, $descripcion);
         	}else{
@@ -171,8 +210,8 @@
         	}
              }
 
-	     if (isset($_POST["deleteCbDerecho-select"]) ) {
- 	        $id = $_POST['idderechodelete'];
+	     if (isset($_POST["delete-derecho-select"]) ) {
+ 	        $id = $_POST['id'];
           $fp = fopen("/tmp/logphp.txt", "w");
           fputs($fp, "Id = ".$id."\n");
           $fp = fclose($fp);
@@ -214,30 +253,28 @@
 										'<?php print($row->descripcion); ?>')">Ver</button>
 					    </td>
 					    <td>
-						<button id="edit-language"
-							name="edit-language"
-							type="button"
-						        class="btn btn-primary"
-						        data-toggle="modal"
-						        data-target="#myModal"
-						        onclick="openCbDerecho('edit',
-									 '<?php print($row->id); ?>',
+						  <button id="edit-language"
+							 name="edit-language"
+							 type="button"
+						   class="btn btn-primary"
+						   data-toggle="modal"
+						   data-target="#myModalUpdate"
+						   onclick="openEditDerecho('<?php print($row->id); ?>',
 				           '<?php print($row->codigo); ?>',
-									 '<?php print($row->descripcion); ?>')"
-							>Editar</button>
+									 '<?php print($row->descripcion); ?>')">Editar</button>
 					    </td>
-				            <td>
-					    	<button id="delete-language-modal"
-							name="delete-language-modal"
-							type="button"
-			                                class="btn btn-danger"
-                        			        data-toggle="modal"
-			                                data-target="#myModalDelete"
-                        			        onclick="deleteCbDerecho('<?php print($row->id); ?>','<?php print($row->codigo); ?>','<?php print($row->descripcion); ?>')"
-						>Eliminar</button>
+				      <td>
+					      <button id="delete-language-modal"
+							    name="delete-language-modal"
+							    type="button"
+                  class="btn btn-danger"
+  		            data-toggle="modal"
+	                data-target="#myModalDelete"
+    	            onclick="deleteCbDerecho('<?php print($row->id); ?>',
+                                      '<?php print($row->codigo); ?>',
+                                      '<?php print($row->descripcion); ?>')">Eliminar</button>
 					   </td>
-
-                                        </tr>
+            </tr>
 
                                 <?php
                                     }

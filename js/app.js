@@ -3,7 +3,8 @@
  * We open a modal window to create a new element.
  * @returns {undefined}
  */
-  function newProductor(){
+
+/*  function newCbProductor(){
     $('#myModal').on('shown.bs.modal', function () {
         $('#myInput').focus()
     });
@@ -17,14 +18,14 @@
     $('#myModal').on('shown.bs.modal', function () {
         $('#myInput').focus()
     });
-  }
+  }*/
 /**
  * Abrimos la ventana modal para crear un nuevo elemento.
  * We open a modal window to create a new element.
  * @returns {undefined}
  */
 function newCbProductor(){
-    openCbProductor('new', null, null, null, null);
+    openCbProductor('new', null, null,null);
 }
 
 function newCbDerecho(){
@@ -48,14 +49,13 @@ function newCbMineral(){
  */
 
  function openEditProductor(id, codigo, nombre){
-   alert(codigo);
-   alert(nombre);
    document.formEdit.id.value = id;
    document.formEdit.codigo.value = codigo;
    document.formEdit.nombre.value = nombre;
    $('#myModalUpdate').on('shown.bs.modal', function () {
      var modal = $(this);
      modal.find('.modal-title').text('Editar Productor');
+     $('#update-language').show();
    });
  }
 
@@ -71,6 +71,7 @@ function openCbProductor(action, id, codigo, nombre){
     $('#myModal').on('shown.bs.modal', function () {
         var modal = $(this);
         if (action === 'new'){
+            document.formCbProductor.id.disabled = true;
             modal.find('.modal-title').text('Creación de Productor');
             $('#save-language').show();
             $('#update-language').hide();
@@ -92,6 +93,7 @@ function openEditMineral(id, descripcion){
   $('#myModalUpdate').on('shown.bs.modal', function () {
     var modal = $(this);
     modal.find('.modal-title').text('Editar Mineral');
+    $('#update-language').show();
     //$('#idlanguage').focus();
   });
 }
@@ -106,6 +108,7 @@ function openCbMineral(action, id, descripcion){
     $('#myModal').on('shown.bs.modal', function () {
         var modal = $(this);
         if (action === 'new'){
+            document.formCbMineral.id.disabled = true;
             modal.find('.modal-title').text('Creación de Mineral');
             $('#save-language').show();
             $('#update-language').hide();
@@ -119,33 +122,41 @@ function openCbMineral(action, id, descripcion){
     });
 }
 
+function openEditDerecho(id, codigo, descripcion){
+  document.formEdit.id.value = id;
+  document.formEdit.codigo.value = codigo;
+  document.formEdit.descripcion.value = descripcion;
+  $('#myModalUpdate').on('shown.bs.modal', function () {
+    var modal = $(this);
+    modal.find('.modal-title').text('Editar Derecho');
+    $('#update-language').show();
+  });
+}
+
 function openCbDerecho(action, id, codigo, descripcion){
-    document.formCbDerecho.id.value = id;
-    document.formCbDerecho.codigo.value = codigo;
-    document.formCbDerecho.descripcion.value = descripcion;
+   document.formCbDerecho.id.value = id;
+   document.formCbDerecho.codigo.value = codigo;
+   document.formCbDerecho.descripcion.value = descripcion;
 
-    document.formCbDerecho.id.disabled = (action === 'see')?true:false;
-    document.formCbDerecho.codigo.disabled = (action === 'see')?true:false;
-    document.formCbDerecho.descripcion.disabled = (action === 'see')?true:false;
+   document.formCbDerecho.id.disabled = (action === 'see')?true:false;
+   document.formCbDerecho.codigo.disabled = (action === 'see')?true:false;
+   document.formCbDerecho.descripcion.disabled = (action === 'see')?true:false;
 
-    $('#myModal').on('shown.bs.modal', function () {
-        var modal = $(this);
-        if (action === 'new'){
-            modal.find('.modal-title').text('Creación de Derecho');
-            $('#save-language').show();
-            $('#update-language').hide();
-        }else if (action === 'edit'){
-            modal.find('.modal-title').text('Actualizar Derecho');
-            $('#save-language').hide();
-            $('#update-language').show();
-        }else if (action === 'see'){
-            modal.find('.modal-title').text('Ver Derecho');
-            $('#save-language').hide();
-            $('#update-language').hide();
-        }
-        //$('#idlanguage').focus()
+   $('#myModal').on('shown.bs.modal', function () {
+       var modal = $(this);
+       if (action === 'new'){
+           document.formCbDerecho.id.disabled = true;
+           modal.find('.modal-title').text('Creación de Derecho');
+           $('#save-language').show();
+           $('#update-language').hide();
+       }else if (action === 'see'){
+           modal.find('.modal-title').text('Ver Derecho');
+           $('#save-language').hide();
+           $('#update-language').hide();
+       }
+       $('#idlanguage').focus()
 
-    });
+   });
 }
 
 /**
@@ -165,22 +176,20 @@ function openCbDerecho(action, id, codigo, descripcion){
       $('#myInput').focus();
   });
 }
+
 function deleteCbDerecho(id,codigo,descripcion){
-  alert('entro');
-  document.formDeleteCbDerecho.idproductordelete.value = id;
-  document.formDeleteCbDerecho.codigo.value = codigo;
-  document.formDeleteCbDerecho.descripcion.value = descripcion;
-  alert(id);
+  document.formDelete.id.value = id;
+  document.formDelete.codigo.value = codigo;
+  document.formDelete.descripcion.value = descripcion;
   $('#myModalDelete').on('shown.bs.modal', function () {
     $('#myInput').focus();
-});
+  });
 }
-  function deleteCbMineral(id,descripcion){
-    alert('entro');
+
+function deleteCbMineral(id,descripcion){
     document.formDeleteCbMineral.idmineraldelete.value = id;
-    document.formDeleteCbMineral.descripciondelete.value = descripcion;
-    alert(id);
+    document.formDeleteCbMineral.descripcion.value = descripcion;
     $('#myModalDelete').on('shown.bs.modal', function () {
       $('#myInput').focus();
-  });
+    });
 }

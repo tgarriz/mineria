@@ -123,11 +123,11 @@
 	                                    <label for="Mineral">¿Se va a eliminar el registro del mineral seleccionado?</label>
         	                        </div>
                		                <div class="input-group">
-         	                      	    <label for="idMineral">Id Mineral</label>
+         	                      	    <label for="id">Id Mineral</label>
                 	                    <input type="text" readonly class="form-control" id="idmineraldelete" name="idmineraldelete" readonly>
                         	        </div>
                                   <div class="input-group">
-                                      <label for="nombre">Descripcion</label>
+                                      <label for="descripcion">Descripcion</label>
                                       <input type="text" readonly class="form-control" id="descripcion" name="descripcion" > <!-- aria-describedby="sizing-addon2">-->
                                   </div>
 	                        </div>
@@ -250,31 +250,29 @@
 						        onclick="openEditMineral('<?php print($row->id); ?>',
 							         '<?php print($row->descripcion); ?>')">Editar</button>
 					    </td>
-				            <td>
+				       <td>
 					    	<button id="delete-language-modal"
-							name="delete-language-modal"
-							type="button"
-			                                class="btn btn-danger"
-                        			        data-toggle="modal"
-			                                data-target="#myModalDelete"
-                        			        onclick="deleteCbMineral('<?php print($row->id); ?>','<?php print($row->nombre); ?>')"
-						>Eliminar</button>
-					   </td>
+							   name="delete-language-modal"
+							   type="button"
+			           class="btn btn-danger"
+                 data-toggle="modal"
+			           data-target="#myModalDelete"
+                 onclick="deleteCbMineral('<?php print($row->id); ?>','<?php print($row->descripcion); ?>')"
+						     >Eliminar</button>
+					    </td>
+            </tr>
+            <?php
+            }
+        } catch (Exception $exception) {
+            echo 'Error hacer la consulta: ' . $exception;
+        }
+      ?>
 
-                                        </tr>
-
-                                <?php
-                                    }
-                                } catch (Exception $exception) {
-                                    echo 'Error hacer la consulta: ' . $exception;
-                                }
-                                ?>
-
-                                </form>
-                            </tbody>
-                        </table>
-                    </div>
-                    <!-- Fin código PHP CRUD -->
+      </form>
+    </tbody>
+  </table>
+</div>
+    <!-- Fin código PHP CRUD -->
                 </div>
             </div>
         </div>
