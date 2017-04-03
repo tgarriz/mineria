@@ -33,19 +33,17 @@ function newCbDerecho(){
 }
 
 function newCbMineral(){
-    openCbMineral('new',null);
+    openCbMineral('new',null,null);
+}
+
+function newCbEstado(){
+    openCbEstado('new',null,null);
 }
 /**
  * Abrimos la ventana modal teniendo en cuenta la acción (action) para
  * utilizarla como creación (Create), lectura (Read) o actualización (Update).
  * We opened the modal window considering the action (action) to use
  * as creation (Create), reading (Read) or upgrade (Update).
- * @param {type} action las acciones que utilizamos son : new para Create, see para Read y edit para Update.
- *      Actions we use are :  new for Create, see for Read and edit for Update.
- * @param {type} id
- * @param {type} codigo
- * @param {type} nombre
- * @returns {undefined}
  */
 
  function openEditProductor(id, codigo, nombre){
@@ -85,9 +83,7 @@ function openCbProductor(action, id, codigo, nombre){
     });
 }
 
-function openEditMineral(id, descripcion){
-  alert(id);
-  alert(descripcion);
+function openEditMineral(id, descripcion) {
   document.formEditMineral.id.value = id;
   document.formEditMineral.descripcion.value = descripcion;
   $('#myModalUpdate').on('shown.bs.modal', function () {
@@ -98,7 +94,7 @@ function openEditMineral(id, descripcion){
   });
 }
 
-function openCbMineral(action, id, descripcion){
+function openCbMineral(action, id, descripcion) {
     document.formCbMineral.id.value = id;
     document.formCbMineral.descripcion.value = descripcion;
 
@@ -122,7 +118,7 @@ function openCbMineral(action, id, descripcion){
     });
 }
 
-function openEditDerecho(id, codigo, descripcion){
+function openEditDerecho(id, codigo, descripcion) {
   document.formEdit.id.value = id;
   document.formEdit.codigo.value = codigo;
   document.formEdit.descripcion.value = descripcion;
@@ -159,6 +155,40 @@ function openCbDerecho(action, id, codigo, descripcion){
    });
 }
 
+function openEditEstado(id, descripcion) {
+  document.formEdit.id.value = id;
+  document.formEdit.descripcion.value = descripcion;
+  $('#myModalUpdate').on('shown.bs.modal', function () {
+    var modal = $(this);
+    modal.find('.modal-title').text('Editar Estado');
+    $('#update-language').show();
+    //$('#idlanguage').focus();
+  });
+}
+
+function openCbEstado(action, id, descripcion) {
+    document.formCbEstado.id.value = id;
+    document.formCbEstado.descripcion.value = descripcion;
+
+    document.formCbEstado.id.disabled = (action === 'see')?true:false;
+    document.formCbEstado.descripcion.disabled = (action === 'see')?true:false;
+
+    $('#myModal').on('shown.bs.modal', function () {
+        var modal = $(this);
+        if (action === 'new'){
+            document.formCbEstado.id.disabled = true;
+            modal.find('.modal-title').text('Creación de Estado');
+            $('#save-language').show();
+            $('#update-language').hide();
+        }else if (action === 'see'){
+            modal.find('.modal-title').text('Ver Estado');
+            $('#save-language').hide();
+            $('#update-language').hide();
+        }
+        $('#idlanguage').focus()
+
+    });
+}
 /**
 * Para borrar el idioma seleccionado abrimos una ventana modal para
 * que el usuario confirme si quiere eliminar el registro.
@@ -189,6 +219,14 @@ function deleteCbDerecho(id,codigo,descripcion){
 function deleteCbMineral(id,descripcion){
     document.formDeleteCbMineral.idmineraldelete.value = id;
     document.formDeleteCbMineral.descripcion.value = descripcion;
+    $('#myModalDelete').on('shown.bs.modal', function () {
+      $('#myInput').focus();
+    });
+}
+
+function deleteCbEstado(id,descripcion){
+    document.formDelete.id.value = id;
+    document.formDelete.descripcion.value = descripcion;
     $('#myModalDelete').on('shown.bs.modal', function () {
       $('#myInput').focus();
     });

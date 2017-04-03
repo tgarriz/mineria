@@ -171,7 +171,7 @@
                         <li><a href="index.php">Productores </a></li>
                         <li class="active"><a href="minerales.php">Minerales<span class="sr-only">(current)</span></a></li>
                         <li><a href="derechos.php">Derechos</a></li>
-			                  <li><a href="">Estados</a></li>
+			                  <li><a href="estados.php">Estados</a></li>
 			                  <li><a href="">Canteras</a></li>
                     </ul>
                 </div>
