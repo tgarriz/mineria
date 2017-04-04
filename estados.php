@@ -170,7 +170,7 @@
                         <li><a href="minerales.php">Minerales</a></li>
                         <li><a href="derechos.php">Derechos</a></li>
 			                  <li class="active"><a href="estados.php">Estados<span class="sr-only">(current)</span></a></li>
-			                  <li><a href="">Canteras</a></li>
+			                  <li><a href="canteras.php">Canteras</a></li>
                     </ul>
                 </div>
                 <div class="col-sm-9 col-sm-offset-3 col-md-10 col-md-offset-2 main">

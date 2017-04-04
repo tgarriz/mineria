@@ -161,7 +161,7 @@
                         <span class="icon-bar"></span>
                         <span class="icon-bar"></span>
                     </button>
-                    <a class="navbar-brand" href="#">Administrador Elementos de Minería</a>
+                    <a class="navbar-brand" href="#">Dashboard</a>
                 </div>
                 <div id="navbar" class="navbar-collapse collapse">
                     <ul class="nav navbar-nav navbar-right">
@@ -182,7 +182,7 @@
                         <li><a href="minerales.php">Minerales</a></li>
                         <li class="active"><a href="#">Derechos<span class="sr-only">(current)</span></a></li>
 			                  <li><a href="estados.php">Estados</a></li>
-			                  <li><a href="">Canteras</a></li>
+			                  <li><a href="canteras.php">Canteras</a></li>
                     </ul>
                 </div>
                 <div class="col-sm-9 col-sm-offset-3 col-md-10 col-md-offset-2 main">
