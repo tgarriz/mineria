@@ -288,11 +288,10 @@ function openCbEstado(action, id, descripcion) {
 * @param {type} idlanguage
 * @returns {undefined}
 */
-  function deleteCbCantera(id,nombre){
-    alert('entro');
-    document.formDeleteCbCantera.id.value = id;
-    document.formDeleteCbCantera.nombre.value = nombre;
-    alert(id);
+  function deleteCbCantera(id,codificacion,nombre){
+    document.formDelete.id.value = id;
+    document.formDelete.codificacion.value = codificacion;
+    document.formDelete.nombre.value = nombre;
     $('#myModalDelete').on('shown.bs.modal', function () {
     $('#myInput').focus();
   });

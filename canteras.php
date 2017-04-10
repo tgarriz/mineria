@@ -309,8 +309,8 @@
                         <li><a href="index.php">Productores</a></li>
                         <li><a href="minerales.php">Minerales</a></li>
                         <li><a href="derechos.php">Derechos</a></li>
-			                  <li><a href="estados.php">Estados</a></li>
-			                  <li class="active"><a href="canteras.php">Canteras<span class="sr-only">(current)</span></a></li>
+	                <li><a href="estados.php">Estados</a></li>
+	                <li class="active"><a href="canteras.php">Canteras<span class="sr-only">(current)</span></a></li>
                     </ul>
                 </div>
                 <div class="col-sm-9 col-sm-offset-3 col-md-10 col-md-offset-2 main">
@@ -331,22 +331,22 @@
         	     $id = $_POST['id'];
         	     $codificacion = $_POST['codificacion'];
         	     $partido = $_POST['partido'];
-               $derecho = $_POST['derecho'];
+	             $derecho = $_POST['derecho'];
         	     $secuencia = $_POST['secuencia'];
         	     $expte = $_POST['expte'];
-               $caracteristica = $_POST['caracteristica'];
+        	     $caracteristica = $_POST['caracteristica'];
         	     $expediente = $_POST['expediente'];
         	     $anio = $_POST['anio'];
-               $nombre = $_POST['nombre'];
+	             $nombre = $_POST['nombre'];
         	     $mineral = $_POST['mineral'];
         	     $titular = $_POST['titular'];
-               $estado = $_POST['estado'];
-               $productor = $_POST['productor'];
-               $localidad = $_POST['localidad'];
-               $nomenclatura = $_POST['nomenclatura'];
+        	     $estado = $_POST['estado'];
+	             $productor = $_POST['productor'];
+        	     $localidad = $_POST['localidad'];
+	             $nomenclatura = $_POST['nomenclatura'];
         	     $reservas = $_POST['reservas'];
         	     $unidad = $_POST['unidad'];
-               $sector = $_POST['sector'];
+        	     $sector = $_POST['sector'];
         	if (isset($_POST["save-language"])){
         	    $CbCanteraController->create($codificacion, $partido, $derecho, $secuencia, $expte, $caracteristica, $expediente, $anio,
                 $nombre,$mineral,$titular,$estado,$productor,$localidad,$nomenclatura,$reservas,$unidad,$sector);
@@ -358,10 +358,10 @@
 
 	     if (isset($_POST["delete-select"]) ) {
  	        $id = $_POST['id'];
-          $fp = fopen("/tmp/logphp.txt", "w");
-          fputs($fp, "Id = ".$id."\n");
-          $fp = fclose($fp);
-		      $CbCanteraController->delete($id);
+	        $fp = fopen("/tmp/logphp.txt", "w");
+        	fputs($fp, "Id = ".$id."\n");
+	        $fp = fclose($fp);
+		$CbCanteraController->delete($id);
 	     }
 
         ?>
@@ -403,22 +403,22 @@
 								    '<?php print($row->id); ?>',
 										'<?php print($row->codificacion); ?>',
 										'<?php print($row->partido); ?>',
-                    '<?php print($row->derecho); ?>',
+								                '<?php print($row->derecho); ?>',
 										'<?php print($row->secuencia); ?>',
 										'<?php print($row->expte); ?>',
-                    '<?php print($row->caracteristica); ?>',
+								                '<?php print($row->caracteristica); ?>',
 										'<?php print($row->expediente); ?>',
 										'<?php print($row->anio); ?>',
-                    '<?php print($row->nombre); ?>',
+								                '<?php print($row->nombre); ?>',
 										'<?php print($row->mineral); ?>',
 										'<?php print($row->titular); ?>',
-                    '<?php print($row->estado); ?>',
+								                '<?php print($row->estado); ?>',
 										'<?php print($row->productor); ?>',
 										'<?php print($row->localidad); ?>',
-                    '<?php print($row->nomenclatura); ?>',
-                    '<?php print($row->reservas); ?>',
-                    '<?php print($row->unidad); ?>',
-                    '<?php print($row->sector); ?>')">Ver</button>
+								                '<?php print($row->nomenclatura); ?>',
+								                '<?php print($row->reservas); ?>',
+								                '<?php print($row->unidad); ?>',
+								                '<?php print($row->sector); ?>')">Ver</button>
 					    </td>
 					    <td>
 						  <button id="edit-language"
@@ -449,17 +449,17 @@
 					    </td>
 				      <td>
 					      <button id="delete-language-modal"
-							    name="delete-language-modal"
-							    type="button"
-                  class="btn btn-danger"
-  		            data-toggle="modal"
-	                data-target="#myModalDelete"
-    	            onclick="deleteCbCantera('<?php print($row->id); ?>',
-                                      '<?php print($row->nombre); ?>')">Eliminar</button>
-					   </td>
-            </tr>
-
-                                <?php
+						name="delete-language-modal"
+						type="button"
+						class="btn btn-danger"
+						data-toggle="modal"
+						data-target="#myModalDelete"
+					    	onclick="deleteCbCantera('<?php print($row->id); ?>',
+						'<?php print($row->codificacion); ?>',
+        	                                '<?php print($row->nombre); ?>')">Eliminar</button>
+					 </td>
+				 </tr>
+	                      <?php
                                     }
                                 } catch (Exception $exception) {
                                     echo 'Error hacer la consulta: ' . $exception;
