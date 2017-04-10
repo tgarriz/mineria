@@ -54,8 +54,7 @@ class CbCanteraController {
    public function update($id,$codificacion, $partido, $derecho, $secuencia, $expte, $caracteristica, $expediente, $anio,
      $nombre,$mineral,$titular,$estado,$productor,$localidad,$nomenclatura,$reservas,$unidad,$sector){
     $sqlUpdate = "UPDATE mineria.cantera SET codificacion = '".$codificacion."', partido = ".$partido.", derecho = ".$derecho.", secuencia = ".$secuencia.
-    ", expte = '".$expte."', caracteristica = '".$caracteristica."', expediente = '".$expediente."', anio = ".$anio.", nombre = '".$nombre."', mineral = ".$mineral.", titular = '".$titular."', estado = ".$estado.", productor = "
-    .$productor.", localidad = '".$localidad."', nomenclatura = '".$nomenclatura."', reservas = ".$reservas.", unidad = '".$unidad."', sector = ".$sector
+    ", expte = '".$expte."', caracteristica = '".$caracteristica."', expediente = '".$expediente."', anio = ".$anio.", nombre = '".$nombre."', mineral = ".$mineral.", titular = '".$titular."', estado = ".$estado.", productor = ".$productor.", localidad = '".$localidad."', nomenclatura = '".$nomenclatura."', reservas = ".$reservas.", unidad = '".$unidad."', sector = ".$sector
     ." WHERE  id  = ".$id.";";
     try {
         $this->cdb->exec($sqlUpdate);

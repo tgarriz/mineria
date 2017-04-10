@@ -57,7 +57,7 @@
                             <form role="form" name="formEdit" method="post" action="canteras.php">
                                 <div class="modal-body">
                                   <div class="input-group">
-                                      <label for="">Id</label>
+                                      <label for="id">Id</label>
                                       <input type="text" readonly class="form-control" id="id" name="id">
                                       <!--<small class="text-muted">Lo utilizamos como ID y se forma con los iso de idioma (es) y país (ES) unidos por un guión bajo.</small>-->
                                   </div>
@@ -91,7 +91,7 @@
                                         <input type="text" class="form-control" id="expediente" name="expediente" placeholder="expediente"> <!-- aria-describedby="sizing-addon2">-->
                                     </div>
                                     <div class="input-group">
-                                        <label for="anio">Caracteristica</label>
+                                        <label for="anio">Año</label>
                                         <input type="text" class="form-control" id="anio" name="anio" placeholder="anio"> <!-- aria-describedby="sizing-addon2">-->
                                     </div>
                                     <div class="input-group">
@@ -157,7 +157,7 @@
                             <form role="form" name="formCbCantera" method="post" action="canteras.php">
                                 <div class="modal-body">
                                   <div class="input-group">
-                                      <label for="">Id</label>
+                                      <label for="id">Id</label>
                                       <input type="text" readonly class="form-control" id="id" name="id">
                                       <!--<small class="text-muted">Lo utilizamos como ID y se forma con los iso de idioma (es) y país (ES) unidos por un guión bajo.</small>-->
                                   </div>
@@ -191,7 +191,7 @@
                                         <input type="text" class="form-control" id="expediente" name="expediente" placeholder="expediente"> <!-- aria-describedby="sizing-addon2">-->
                                     </div>
                                     <div class="input-group">
-                                        <label for="anio">Caracteristica</label>
+                                        <label for="anio">Año</label>
                                         <input type="text" class="form-control" id="anio" name="anio" placeholder="anio"> <!-- aria-describedby="sizing-addon2">-->
                                     </div>
                                     <div class="input-group">
@@ -428,7 +428,6 @@
 						   data-toggle="modal"
 						   data-target="#myModalUpdate"
 						   onclick="openEditCantera('<?php print($row->id); ?>',
-               '<?php print($row->id); ?>',
                '<?php print($row->codificacion); ?>',
                '<?php print($row->partido); ?>',
                '<?php print($row->derecho); ?>',
