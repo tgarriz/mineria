@@ -62,11 +62,6 @@
                                       <!--<small class="text-muted">Lo utilizamos como ID y se forma con los iso de idioma (es) y país (ES) unidos por un guión bajo.</small>-->
                                   </div>
                                     <div class="input-group">
-                                        <label for="codificacion">Codificacion</label>
-                                        <input type="text" class="form-control" id="codificacion" name="codificacion" placeholder="codificacion" >
-                                        <!--<small class="text-muted">Lo utilizamos como ID y se forma con los iso de idioma (es) y país (ES) unidos por un guión bajo.</small>-->
-                                    </div>
-                                    <div class="input-group">
                                         <label for="partido">Partido</label>
                                         <input type="text" class="form-control" id="partido" name="partido" placeholder="partido"> <!-- aria-describedby="sizing-addon2">-->
                                     </div>
@@ -77,10 +72,6 @@
                                     <div class="input-group">
                                         <label for="secuencia">Secuencia</label>
                                         <input type="text" class="form-control" id="secuencia" name="secuencia" placeholder="secuencia"> <!-- aria-describedby="sizing-addon2">-->
-                                    </div>
-                                    <div class="input-group">
-                                        <label for="expte">Expte</label>
-                                        <input type="text" class="form-control" id="expte" name="expte" placeholder="expte"> <!-- aria-describedby="sizing-addon2">-->
                                     </div>
                                     <div class="input-group">
                                         <label for="caracteristica">Caracteristica</label>
@@ -144,7 +135,7 @@
                     </div><!-- /.modal-dialog -->
                 </div><!-- /.modal -->
     	<!--
-            Create - Read
+            Create
             Creamos una ventana Modal que utilizaremos para crear un nuevo idioma, actualizarlo o mostrarlo.
             We create a modal window used to create a new language, update or display.-->
                 <div class="modal fade" id="myModal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel">
@@ -162,11 +153,6 @@
                                       <!--<small class="text-muted">Lo utilizamos como ID y se forma con los iso de idioma (es) y país (ES) unidos por un guión bajo.</small>-->
                                   </div>
                                     <div class="input-group">
-                                        <label for="codificacion">Codificacion</label>
-                                        <input type="text" class="form-control" id="codificacion" name="codificacion" placeholder="codificacion" >
-                                        <!--<small class="text-muted">Lo utilizamos como ID y se forma con los iso de idioma (es) y país (ES) unidos por un guión bajo.</small>-->
-                                    </div>
-                                    <div class="input-group">
                                         <label for="partido">Partido</label>
                                         <input type="text" class="form-control" id="partido" name="partido" placeholder="partido"> <!-- aria-describedby="sizing-addon2">-->
                                     </div>
@@ -177,10 +163,6 @@
                                     <div class="input-group">
                                         <label for="secuencia">Secuencia</label>
                                         <input type="text" class="form-control" id="secuencia" name="secuencia" placeholder="secuencia"> <!-- aria-describedby="sizing-addon2">-->
-                                    </div>
-                                    <div class="input-group">
-                                        <label for="expte">Expte</label>
-                                        <input type="text" class="form-control" id="expte" name="expte" placeholder="expte"> <!-- aria-describedby="sizing-addon2">-->
                                     </div>
                                     <div class="input-group">
                                         <label for="caracteristica">Caracteristica</label>
@@ -243,6 +225,107 @@
                         </div><!-- /.modal-content -->
                     </div><!-- /.modal-dialog -->
                 </div><!-- /.modal -->
+
+                <!--
+                      Read
+                      Creamos una ventana Modal que utilizaremos para crear un nuevo idioma, actualizarlo o mostrarlo.
+                      We create a modal window used to create a new language, update or display.-->
+                          <div class="modal fade" id="myModalRead" tabindex="-1" role="dialog" aria-labelledby="myModalLabel">
+                              <div class="modal-dialog" role="document">
+                                  <div class="modal-content">
+                                      <div class="modal-header">
+                                          <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+                                          <h4 class="modal-title" id="myModalLabel"></h4>
+                                      </div>
+                                      <form role="form" name="formCbCanteraRead" method="post" action="canteras.php">
+                                          <div class="modal-body">
+                                            <div class="input-group">
+                                                <label for="id">Id</label>
+                                                <input type="text" readonly class="form-control" id="id" name="id">
+                                                <!--<small class="text-muted">Lo utilizamos como ID y se forma con los iso de idioma (es) y país (ES) unidos por un guión bajo.</small>-->
+                                            </div>
+                                              <div class="input-group">
+                                                  <label for="codificacion">Codificacion</label>
+                                                  <input type="text" class="form-control" id="codificacion" name="codificacion" placeholder="codificacion" >
+                                                  <!--<small class="text-muted">Lo utilizamos como ID y se forma con los iso de idioma (es) y país (ES) unidos por un guión bajo.</small>-->
+                                              </div>
+                                              <div class="input-group">
+                                                  <label for="partido">Partido</label>
+                                                  <input type="text" class="form-control" id="partido" name="partido" placeholder="partido"> <!-- aria-describedby="sizing-addon2">-->
+                                              </div>
+                                              <div class="input-group">
+                                                  <label for="derecho">Derecho</label>
+                                                  <input type="text" class="form-control" id="derecho" name="derecho" placeholder="derecho"> <!-- aria-describedby="sizing-addon2">-->
+                                              </div>
+                                              <div class="input-group">
+                                                  <label for="secuencia">Secuencia</label>
+                                                  <input type="text" class="form-control" id="secuencia" name="secuencia" placeholder="secuencia"> <!-- aria-describedby="sizing-addon2">-->
+                                              </div>
+                                              <div class="input-group">
+                                                  <label for="expte">Expte</label>
+                                                  <input type="text" class="form-control" id="expte" name="expte" placeholder="expte"> <!-- aria-describedby="sizing-addon2">-->
+                                              </div>
+                                              <div class="input-group">
+                                                  <label for="caracteristica">Caracteristica</label>
+                                                  <input type="text" class="form-control" id="caracteristica" name="caracteristica" placeholder="caracteristica"> <!-- aria-describedby="sizing-addon2">-->
+                                              </div>
+                                              <div class="input-group">
+                                                  <label for="expediente">Expediente</label>
+                                                  <input type="text" class="form-control" id="expediente" name="expediente" placeholder="expediente"> <!-- aria-describedby="sizing-addon2">-->
+                                              </div>
+                                              <div class="input-group">
+                                                  <label for="anio">Año</label>
+                                                  <input type="text" class="form-control" id="anio" name="anio" placeholder="anio"> <!-- aria-describedby="sizing-addon2">-->
+                                              </div>
+                                              <div class="input-group">
+                                                  <label for="nombre">Nombre</label>
+                                                  <input type="text" class="form-control" id="nombre" name="nombre" placeholder="nombre"> <!-- aria-describedby="sizing-addon2">-->
+                                              </div>
+                                              <div class="input-group">
+                                                  <label for="mineral">Mineral</label>
+                                                  <input type="text" class="form-control" id="mineral" name="mineral" placeholder="mineral"> <!-- aria-describedby="sizing-addon2">-->
+                                              </div>
+                                              <div class="input-group">
+                                                  <label for="titular">Titular</label>
+                                                  <input type="text" class="form-control" id="titular" name="titular" placeholder="titular"> <!-- aria-describedby="sizing-addon2">-->
+                                              </div>
+                                              <div class="input-group">
+                                                  <label for="estado">Estado</label>
+                                                  <input type="text" class="form-control" id="estado" name="estado" placeholder="estado"> <!-- aria-describedby="sizing-addon2">-->
+                                              </div>
+                                              <div class="input-group">
+                                                  <label for="productor">Productor</label>
+                                                  <input type="text" class="form-control" id="productor" name="productor" placeholder="productor"> <!-- aria-describedby="sizing-addon2">-->
+                                              </div>
+                                              <div class="input-group">
+                                                  <label for="localidad">Localidad</label>
+                                                  <input type="text" class="form-control" id="localidad" name="localidad" placeholder="localidad"> <!-- aria-describedby="sizing-addon2">-->
+                                              </div>
+                                              <div class="input-group">
+                                                  <label for="nomenclatura">Nomenclatura</label>
+                                                  <input type="text" class="form-control" id="nomenclatura" name="nomenclatura" placeholder="nomenclatura"> <!-- aria-describedby="sizing-addon2">-->
+                                              </div>
+                                              <div class="input-group">
+                                                  <label for="reservas">Reservas</label>
+                                                  <input type="text" class="form-control" id="reservas" name="reservas" placeholder="reservas"> <!-- aria-describedby="sizing-addon2">-->
+                                              </div>
+                                              <div class="input-group">
+                                                  <label for="unidad">Unidad</label>
+                                                  <input type="text" class="form-control" id="unidad" name="unidad" placeholder="unidad"> <!-- aria-describedby="sizing-addon2">-->
+                                              </div>
+                                              <div class="input-group">
+                                                  <label for="sector">Sector</label>
+                                                  <input type="text" class="form-control" id="sector" name="sector" placeholder="sector"> <!-- aria-describedby="sizing-addon2">-->
+                                              </div>
+                                          </div>
+                                          <div class="modal-footer">
+                                              <button id="cancel"type="button" class="btn btn-default" data-dismiss="modal">Cerrar</button>
+                                          </div>
+                                      </form>
+                                  </div><!-- /.modal-content -->
+                              </div><!-- /.modal-dialog -->
+                          </div><!-- /.modal -->
+
 
 		<!-- Modal DELETE -->
 		<div class="modal fade" id="myModalDelete" tabindex="-1" role="dialog" aria-labelledby="myModalDeleteLabel">
@@ -329,11 +412,9 @@
 
             if (isset($_POST["save-language"]) || isset($_POST["update-language"]) ) {
         	     $id = $_POST['id'];
-        	     $codificacion = $_POST['codificacion'];
         	     $partido = $_POST['partido'];
 	             $derecho = $_POST['derecho'];
         	     $secuencia = $_POST['secuencia'];
-        	     $expte = $_POST['expte'];
         	     $caracteristica = $_POST['caracteristica'];
         	     $expediente = $_POST['expediente'];
         	     $anio = $_POST['anio'];
@@ -348,10 +429,10 @@
         	     $unidad = $_POST['unidad'];
         	     $sector = $_POST['sector'];
         	if (isset($_POST["save-language"])){
-        	    $CbCanteraController->create($codificacion, $partido, $derecho, $secuencia, $expte, $caracteristica, $expediente, $anio,
+        	    $CbCanteraController->create($partido, $derecho, $secuencia, $caracteristica, $expediente, $anio,
                 $nombre,$mineral,$titular,$estado,$productor,$localidad,$nomenclatura,$reservas,$unidad,$sector);
         	}else{
-        	    $CbCanteraController->update($id,$codificacion, $partido, $derecho, $secuencia, $expte, $caracteristica, $expediente, $anio,
+        	    $CbCanteraController->update($id,$partido, $derecho, $secuencia, $caracteristica, $expediente, $anio,
                 $nombre,$mineral,$titular,$estado,$productor,$localidad,$nomenclatura,$reservas,$unidad,$sector);
         	}
         }
@@ -398,27 +479,27 @@
 							type="button"
 							class="btn btn-success"
 							data-toggle="modal"
-							data-target="#myModal"
-							onclick="openCbCantera('see',
+							data-target="#myModalRead"
+							onclick="openCbCanteraRead('see',
 								    '<?php print($row->id); ?>',
 										'<?php print($row->codificacion); ?>',
 										'<?php print($row->partido); ?>',
-								                '<?php print($row->derecho); ?>',
+								    '<?php print($row->derecho); ?>',
 										'<?php print($row->secuencia); ?>',
 										'<?php print($row->expte); ?>',
-								                '<?php print($row->caracteristica); ?>',
+								    '<?php print($row->caracteristica); ?>',
 										'<?php print($row->expediente); ?>',
 										'<?php print($row->anio); ?>',
-								                '<?php print($row->nombre); ?>',
+								    '<?php print($row->nombre); ?>',
 										'<?php print($row->mineral); ?>',
 										'<?php print($row->titular); ?>',
-								                '<?php print($row->estado); ?>',
+								    '<?php print($row->estado); ?>',
 										'<?php print($row->productor); ?>',
 										'<?php print($row->localidad); ?>',
-								                '<?php print($row->nomenclatura); ?>',
-								                '<?php print($row->reservas); ?>',
-								                '<?php print($row->unidad); ?>',
-								                '<?php print($row->sector); ?>')">Ver</button>
+								    '<?php print($row->nomenclatura); ?>',
+								    '<?php print($row->reservas); ?>',
+								    '<?php print($row->unidad); ?>',
+								    '<?php print($row->sector); ?>')">Ver</button>
 					    </td>
 					    <td>
 						  <button id="edit-language"
@@ -428,11 +509,9 @@
 						   data-toggle="modal"
 						   data-target="#myModalUpdate"
 						   onclick="openEditCantera('<?php print($row->id); ?>',
-               '<?php print($row->codificacion); ?>',
                '<?php print($row->partido); ?>',
                '<?php print($row->derecho); ?>',
                '<?php print($row->secuencia); ?>',
-               '<?php print($row->expte); ?>',
                '<?php print($row->caracteristica); ?>',
                '<?php print($row->expediente); ?>',
                '<?php print($row->anio); ?>',
@@ -448,15 +527,15 @@
                '<?php print($row->sector); ?>')">Editar</button>
 					    </td>
 				      <td>
-					      <button id="delete-language-modal"
+					  <button id="delete-language-modal"
 						name="delete-language-modal"
 						type="button"
 						class="btn btn-danger"
 						data-toggle="modal"
 						data-target="#myModalDelete"
-					    	onclick="deleteCbCantera('<?php print($row->id); ?>',
-						'<?php print($row->codificacion); ?>',
-        	                                '<?php print($row->nombre); ?>')">Eliminar</button>
+					  onclick="deleteCbCantera('<?php print($row->id); ?>',
+						                         '<?php print($row->codificacion); ?>',
+        	                           '<?php print($row->nombre); ?>')">Eliminar</button>
 					 </td>
 				 </tr>
 	                      <?php

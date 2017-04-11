@@ -50,14 +50,13 @@ function newCbCantera(){
  * as creation (Create), reading (Read) or upgrade (Update).
  */
 
- function openEditCantera(id, codificacion, partido, derecho, secuencia, expte, caracteristica, expediente, anio,
+ function openEditCantera(id, partido, derecho, secuencia, caracteristica, expediente, anio,
    nombre,mineral,titular,estado,productor,localidad,nomenclatura,reservas,unidad,sector) {
+   alert('estoy en openEditCantera');
    document.formEdit.id.value = id;
-   document.formEdit.codificacion.value = codificacion;
    document.formEdit.partido.value = partido;
    document.formEdit.derecho.value = derecho;
    document.formEdit.secuencia.value = secuencia;
-   document.formEdit.expte.value = expte;
    document.formEdit.caracteristica.value = caracteristica;
    document.formEdit.expediente.value = expediente;
    document.formEdit.anio.value = anio;
@@ -78,14 +77,13 @@ function newCbCantera(){
    });
  }
 
- function openCbCantera(action, id, codificacion, partido, derecho, secuencia, expte, caracteristica, expediente, anio,
+ function openCbCantera(action, id, partido, derecho, secuencia, caracteristica, expediente, anio,
    nombre,mineral,titular,estado,productor,localidad,nomenclatura,reservas,unidad,sector){
+     alert('estoy en openCbCantera')
      document.formCbCantera.id.value = id;
-     document.formCbCantera.codificacion.value = codificacion;
      document.formCbCantera.partido.value = partido;
      document.formCbCantera.derecho.value = derecho;
      document.formCbCantera.secuencia.value = secuencia;
-     document.formCbCantera.expte.value = expte;
      document.formCbCantera.caracteristica.value = caracteristica;
      document.formCbCantera.expediente.value = expediente;
      document.formCbCantera.anio.value = anio;
@@ -100,39 +98,63 @@ function newCbCantera(){
      document.formCbCantera.unidad.value = unidad;
      document.formCbCantera.sector.value = sector;
 
-     document.formCbCantera.id.disabled = (action === 'see')?true:false;
-     document.formCbCantera.codificacion.disabled = (action === 'see')?true:false;
-     document.formCbCantera.partido.disabled = (action === 'see')?true:false;
-     document.formCbCantera.derecho.disabled = (action === 'see')?true:false;
-     document.formCbCantera.secuencia.disabled = (action === 'see')?true:false;
-     document.formCbCantera.expte.disabled = (action === 'see')?true:false;
-     document.formCbCantera.caracteristica.disabled = (action === 'see')?true:false;
-     document.formCbCantera.expediente.disabled = (action === 'see')?true:false;
-     document.formCbCantera.anio.disabled = (action === 'see')?true:false;
-     document.formCbCantera.nombre.disabled = (action === 'see')?true:false;
-     document.formCbCantera.mineral.disabled = (action === 'see')?true:false;
-     document.formCbCantera.titular.disabled = (action === 'see')?true:false;
-     document.formCbCantera.estado.disabled = (action === 'see')?true:false;
-     document.formCbCantera.productor.disabled = (action === 'see')?true:false;
-     document.formCbCantera.localidad.disabled = (action === 'see')?true:false;
-     document.formCbCantera.nomenclatura.disabled = (action === 'see')?true:false;
-     document.formCbCantera.reservas.disabled = (action === 'see')?true:false;
-     document.formCbCantera.unidad.disabled = (action === 'see')?true:false;
-     document.formCbCantera.sector.disabled = (action === 'see')?true:false;
-
      $('#myModal').on('shown.bs.modal', function () {
          var modal = $(this);
-         if (action === 'new'){
-             document.formCbCantera.id.disabled = true;
-             modal.find('.modal-title').text('Creación de Cantera');
-             $('#save-language').show();
-             $('#update-language').hide();
-         }else if (action === 'see'){
-             modal.find('.modal-title').text('Ver Cantera');
-             $('#save-language').hide();
-             $('#update-language').hide();
-         }
+         document.formCbCantera.id.disabled = true;
+         modal.find('.modal-title').text('Creación de Cantera');
+             //$('#save-language').show();
+             //$('#update-language').hide()
          $('#idlanguage').focus()
+     });
+ }
+ function openCbCanteraRead(action, id, codificacion, partido, derecho, secuencia, expte, caracteristica, expediente, anio,
+   nombre,mineral,titular,estado,productor,localidad,nomenclatura,reservas,unidad,sector){
+     alert('estoy en openCbCanteraRead')
+     document.formCbCanteraRead.id.value = id;
+     document.formCbCanteraRead.codificacion.value = codificacion;
+     document.formCbCanteraRead.partido.value = partido;
+     document.formCbCanteraRead.secuencia.value = secuencia;
+     document.formCbCanteraRead.derecho.value = derecho;
+     document.formCbCanteraRead.expte.value = expte;
+     document.formCbCanteraRead.caracteristica.value = caracteristica;
+     document.formCbCanteraRead.expediente.value = expediente;
+     document.formCbCanteraRead.anio.value = anio;
+     document.formCbCanteraRead.nombre.value = nombre;
+     document.formCbCanteraRead.mineral.value = mineral;
+     document.formCbCanteraRead.titular.value = titular;
+     document.formCbCanteraRead.estado.value = estado;
+     document.formCbCanteraRead.productor.value = productor;
+     document.formCbCanteraRead.localidad.value = localidad;
+     document.formCbCanteraRead.nomenclatura.value = nomenclatura;
+     document.formCbCanteraRead.reservas.value = reservas;
+     document.formCbCanteraRead.unidad.value = unidad;
+     document.formCbCanteraRead.sector.value = sector;
+
+     document.formCbCanteraRead.codificacion.disabled = (action === 'see')?true:false;
+     document.formCbCanteraRead.id.disabled = (action === 'see')?true:false;
+     document.formCbCanteraRead.partido.disabled = (action === 'see')?true:false;
+     document.formCbCanteraRead.derecho.disabled = (action === 'see')?true:false;
+     document.formCbCanteraRead.secuencia.disabled = (action === 'see')?true:false;
+     document.formCbCanteraRead.secuencia.disabled = (action === 'see')?true:false;
+     document.formCbCanteraRead.caracteristica.disabled = (action === 'see')?true:false;
+     document.formCbCanteraRead.expte.disabled = (action === 'see')?true:false;
+     document.formCbCanteraRead.expediente.disabled = (action === 'see')?true:false;
+     document.formCbCanteraRead.anio.disabled = (action === 'see')?true:false;
+     document.formCbCanteraRead.nombre.disabled = (action === 'see')?true:false;
+     document.formCbCanteraRead.mineral.disabled = (action === 'see')?true:false;
+     document.formCbCanteraRead.titular.disabled = (action === 'see')?true:false;
+     document.formCbCanteraRead.estado.disabled = (action === 'see')?true:false;
+     document.formCbCanteraRead.productor.disabled = (action === 'see')?true:false;
+     document.formCbCanteraRead.localidad.disabled = (action === 'see')?true:false;
+     document.formCbCanteraRead.nomenclatura.disabled = (action === 'see')?true:false;
+     document.formCbCanteraRead.reservas.disabled = (action === 'see')?true:false;
+     document.formCbCanteraRead.unidad.disabled = (action === 'see')?true:false;
+     document.formCbCanteraRead.sector.disabled = (action === 'see')?true:false;
+
+     $('#myModalRead').on('shown.bs.modal', function () {
+         var modal = $(this);
+         modal.find('.modal-title').text('Ver Cantera');
+        //$('#idlanguage').focus()
 
      });
  }

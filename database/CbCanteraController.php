@@ -30,11 +30,11 @@ class CbCanteraController {
  * @param type $codigo
  * @param type $descripcion
  */
-    function create($codificacion, $partido, $derecho, $secuencia, $expte, $caracteristica, $expediente, $anio,
+    function create($partido, $derecho, $secuencia, $caracteristica, $expediente, $anio,
       $nombre,$mineral,$titular,$estado,$productor,$localidad,$nomenclatura,$reservas,$unidad,$sector){
-      $sqlInsert = "INSERT INTO mineria.cantera(codificacion, partido, derecho, secuencia, expte, caracteristica, expediente, anio,
+      $sqlInsert = "INSERT INTO mineria.cantera(partido, derecho, secuencia, caracteristica, expediente, anio,
         nombre,mineral,titular,estado,productor,localidad,nomenclatura,reservas,unidad,sector)"
-        . " VALUES ('".$codificacion."',".$partido.",".$derecho.",".$secuencia.",'".$expte."','".$caracteristica."','".$expediente."',".
+        . " VALUES (".$partido.",".$derecho.",".$secuencia.",'".$caracteristica."','".$expediente."',".
         $anio.",'".$nombre."',".$mineral.",'".$titular."',".$estado.",".$productor.",'".$localidad."','".$nomenclatura."',".$reservas.",'".$unidad."',".$sector.");";
       try {
         $this->cdb->exec($sqlInsert);
@@ -51,10 +51,9 @@ class CbCanteraController {
  * @param type $codigo
  * @param type $descripcion
  */
-   public function update($id,$codificacion, $partido, $derecho, $secuencia, $expte, $caracteristica, $expediente, $anio,
+   public function update($id, $partido, $derecho, $secuencia, $caracteristica, $expediente, $anio,
      $nombre,$mineral,$titular,$estado,$productor,$localidad,$nomenclatura,$reservas,$unidad,$sector){
-    $sqlUpdate = "UPDATE mineria.cantera SET codificacion = '".$codificacion."', partido = ".$partido.", derecho = ".$derecho.", secuencia = ".$secuencia.
-    ", expte = '".$expte."', caracteristica = '".$caracteristica."', expediente = '".$expediente."', anio = ".$anio.", nombre = '".$nombre."', mineral = ".$mineral.", titular = '".$titular."', estado = ".$estado.", productor = ".$productor.", localidad = '".$localidad."', nomenclatura = '".$nomenclatura."', reservas = ".$reservas.", unidad = '".$unidad."', sector = ".$sector
+    $sqlUpdate = "UPDATE mineria.cantera SET partido = ".$partido.", derecho = ".$derecho.", secuencia = ".$secuencia.", caracteristica = '".$caracteristica."', expediente = '".$expediente."', anio = ".$anio.", nombre = '".$nombre."', mineral = ".$mineral.", titular = '".$titular."', estado = ".$estado.", productor = ".$productor.", localidad = '".$localidad."', nomenclatura = '".$nomenclatura."', reservas = ".$reservas.", unidad = '".$unidad."', sector = ".$sector
     ." WHERE  id  = ".$id.";";
     try {
         $this->cdb->exec($sqlUpdate);
