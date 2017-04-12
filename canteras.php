@@ -82,7 +82,7 @@
                                                     $rows = $CbCanteraController->listaDerechos();
                                                     foreach ($rows as $row) {
                                           ?>
-                                               <option value="<?php print($row->id); ?>"><?php print($row->id); ?> - <?php print($row->descripcion); ?></option>
+                                               <option value="<?php print($row->codigo); ?>"><?php print($row->codigo); ?> - <?php print($row->descripcion); ?></option>
                                           <?php
                                                     }
                                             }  catch (Exception $exception) {
@@ -153,7 +153,7 @@
                                     </div>
                                     </div>
                                     <div class="input-group">
-                                        <label for="productor">Productor:  </label>
+                                        <label for="productor">Productor</label>
 					 <select class="form-control" data-style="btn-primary" id="productor" name="productor">
 						<option value="null" >Nulo</option>
 					  <?php
@@ -161,7 +161,7 @@
 		                                    $rows = $CbCanteraController->listaProductores();
 	        	                            foreach ($rows as $row) {
         	        	          ?>
-                                               <option value="<?php print($row->id); ?>"><?php print($row->nombre); ?></option>
+                                               <option value="<?php print($row->codigo); ?>"><?php print($row->nombre); ?></option>
 					  <?php
 						    }
 					    }  catch (Exception $exception) {
@@ -231,7 +231,7 @@
                                                     $rows = $CbCanteraController->listaDerechos();
                                                     foreach ($rows as $row) {
                                           ?>
-                                               <option value="<?php print($row->id); ?>"><?php print($row->id); ?> - <?php print($row->descripcion); ?></option>
+                                               <option value="<?php print($row->codigo); ?>"><?php print($row->codigo); ?> - <?php print($row->descripcion); ?></option>
                                           <?php
                                                     }
                                             }  catch (Exception $exception) {
@@ -310,7 +310,7 @@
 		                                    $rows = $CbCanteraController->listaProductores();
 	        	                            foreach ($rows as $row) {
         	        	          ?>
-                                               <option value="<?php print($row->id); ?>"><?php print($row->nombre); ?></option>
+                                               <option value="<?php print($row->codigo); ?>"><?php print($row->nombre); ?></option>
 					  <?php
 						    }
 					    }  catch (Exception $exception) {

@@ -24,7 +24,7 @@ class CbCanteraController {
     }
 
     public function listaProductores(){
-	$query = "SELECT id, nombre FROM mineria.productor;";
+	$query = "SELECT codigo, nombre FROM mineria.productor;";
         $statement = $this->cdb->prepare($query);
         $statement->execute();
         $rows = $statement->fetchAll(\PDO::FETCH_OBJ);
@@ -41,7 +41,7 @@ class CbCanteraController {
 
     
     public function listaDerechos(){
-	$query = "SELECT id, descripcion FROM mineria.tipo_derecho;";
+	$query = "SELECT codigo, descripcion FROM mineria.tipo_derecho;";
         $statement = $this->cdb->prepare($query);
         $statement->execute();
         $rows = $statement->fetchAll(\PDO::FETCH_OBJ);
@@ -70,8 +70,7 @@ class CbCanteraController {
       $nombre,$mineral,$titular,$estado,$productor,$localidad,$nomenclatura,$reservas,$unidad,$sector){
       $sqlInsert = "INSERT INTO mineria.cantera(partido, derecho, secuencia, caracteristica, expediente, anio,
         nombre,mineral,titular,estado,productor,localidad,nomenclatura,reservas,unidad,sector)"
-        . " VALUES (".$partido.",".$derecho.",".$secuencia.",'".$caracteristica."','".$expediente."',".
-        $anio.",'".$nombre."',".$mineral.",'".$titular."',".$estado.",".$productor.",'".$localidad."','".$nomenclatura."',".$reservas.",'".$unidad."',".$sector.");";
+        . " VALUES (".$partido.",".$derecho.",".$secuencia.",'".$caracteristica."','".$expediente."',".$anio.",'".$nombre."',".$mineral.",'".$titular."',".$estado.",".$productor.",'".$localidad."','".$nomenclatura."',".$reservas.",'".$unidad."',".$sector.");";
       try {
         $this->cdb->exec($sqlInsert);
       } catch (PDOException $pdoException) {
