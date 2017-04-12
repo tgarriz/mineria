@@ -23,6 +23,42 @@ class CbCanteraController {
         return $rows;
     }
 
+    public function listaProductores(){
+	$query = "SELECT id, nombre FROM mineria.productor;";
+        $statement = $this->cdb->prepare($query);
+        $statement->execute();
+        $rows = $statement->fetchAll(\PDO::FETCH_OBJ);
+        return $rows;
+    }
+
+    public function listaMinerales(){
+	$query = "SELECT id, descripcion FROM mineria.mineral;";
+        $statement = $this->cdb->prepare($query);
+        $statement->execute();
+        $rows = $statement->fetchAll(\PDO::FETCH_OBJ);
+        return $rows;
+    }
+
+    
+    public function listaDerechos(){
+	$query = "SELECT id, descripcion FROM mineria.tipo_derecho;";
+        $statement = $this->cdb->prepare($query);
+        $statement->execute();
+        $rows = $statement->fetchAll(\PDO::FETCH_OBJ);
+        return $rows;
+    }
+
+    
+    public function listaEstados(){
+	$query = "SELECT id, descripcion FROM mineria.estado;";
+        $statement = $this->cdb->prepare($query);
+        $statement->execute();
+        $rows = $statement->fetchAll(\PDO::FETCH_OBJ);
+        return $rows;
+    }
+
+    /**
+ * Creamos un nuevo idioma con los parámetros pasados.
     /**
  * Creamos un nuevo idioma con los parámetros pasados.
  * We create a new language with parameters .

@@ -52,7 +52,7 @@ function newCbCantera(){
 
  function openEditCantera(id, partido, derecho, secuencia, caracteristica, expediente, anio,
    nombre,mineral,titular,estado,productor,localidad,nomenclatura,reservas,unidad,sector) {
-   alert('estoy en openEditCantera');
+   //alert('estoy en openEditCantera');
    document.formEdit.id.value = id;
    document.formEdit.partido.value = partido;
    document.formEdit.derecho.value = derecho;
@@ -79,7 +79,7 @@ function newCbCantera(){
 
  function openCbCantera(action, id, partido, derecho, secuencia, caracteristica, expediente, anio,
    nombre,mineral,titular,estado,productor,localidad,nomenclatura,reservas,unidad,sector){
-     alert('estoy en openCbCantera')
+     //alert('estoy en openCbCantera')
      document.formCbCantera.id.value = id;
      document.formCbCantera.partido.value = partido;
      document.formCbCantera.derecho.value = derecho;
@@ -109,7 +109,7 @@ function newCbCantera(){
  }
  function openCbCanteraRead(action, id, codificacion, partido, derecho, secuencia, expte, caracteristica, expediente, anio,
    nombre,mineral,titular,estado,productor,localidad,nomenclatura,reservas,unidad,sector){
-     alert('estoy en openCbCanteraRead')
+     //alert('estoy en openCbCanteraRead')
      document.formCbCanteraRead.id.value = id;
      document.formCbCanteraRead.codificacion.value = codificacion;
      document.formCbCanteraRead.partido.value = partido;
@@ -322,7 +322,7 @@ function openCbEstado(action, id, descripcion) {
   function deleteCbProductor(id,nombre){
     document.formDeleteCbProductor.idproductordelete.value = id;
     document.formDeleteCbProductor.nombre.value = nombre;
-    alert(id);
+    //alert(id);
     $('#myModalDelete').on('shown.bs.modal', function () {
       $('#myInput').focus();
   });

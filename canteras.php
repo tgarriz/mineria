@@ -43,6 +43,14 @@
     </head>
 
     <body>
+	<?php
+	 include 'database/DatabaseConnect.php';
+         include 'database/CbCanteraController.php';
+	 $dConnect = new DatabaseConnect;
+         $cdb = $dConnect->dbConnectSimple();
+         $CbCanteraController = new CbCanteraController();
+         $CbCanteraController->cdb = $cdb;
+	?>
       <!--
             Update
             Creamos una ventana Modal que utilizaremos para crear un nuevo idioma, actualizarlo o mostrarlo.
@@ -67,7 +75,21 @@
                                     </div>
                                     <div class="input-group">
                                         <label for="derecho">Derecho</label>
-                                        <input type="text" class="form-control" id="derecho" name="derecho" placeholder="derecho"> <!-- aria-describedby="sizing-addon2">-->
+					<select class="form-control" data-style="btn-primary" id="derecho" name="derecho">
+						<option value="null">Nulo</option>
+                                          <?php
+                                            try {
+                                                    $rows = $CbCanteraController->listaDerechos();
+                                                    foreach ($rows as $row) {
+                                          ?>
+                                               <option value="<?php print($row->id); ?>"><?php print($row->id); ?> - <?php print($row->descripcion); ?></option>
+                                          <?php
+                                                    }
+                                            }  catch (Exception $exception) {
+                                                        echo 'Error al traer listaDerechos: ' . $exception;
+                                                }
+                                          ?>
+                                        </select>	
                                     </div>
                                     <div class="input-group">
                                         <label for="secuencia">Secuencia</label>
@@ -91,19 +113,62 @@
                                     </div>
                                     <div class="input-group">
                                         <label for="mineral">Mineral</label>
-                                        <input type="text" class="form-control" id="mineral" name="mineral" placeholder="mineral"> <!-- aria-describedby="sizing-addon2">-->
+					 <select class="form-control" data-style="btn-primary" id="mineral" name="mineral">
+						<option value="null">Nulo</option>
+                                          <?php
+                                            try {
+                                                    $rows = $CbCanteraController->listaMinerales();
+                                                    foreach ($rows as $row) {
+                                          ?>
+                                               <option value="<?php print($row->id); ?>"><?php print($row->descripcion); ?></option>
+                                          <?php
+                                                    }
+                                            }  catch (Exception $exception) {
+                                                        echo 'Error al traer listaMinerales: ' . $exception;
+                                                }
+                                          ?>
+                                        </select>
+
                                     </div>
                                     <div class="input-group">
                                         <label for="titular">Titular</label>
-                                        <input type="text" class="form-control" id="titular" name="titular" placeholder="titular"> <!-- aria-describedby="sizing-addon2">-->
-                                    </div>
                                     <div class="input-group">
                                         <label for="estado">Estado</label>
-                                        <input type="text" class="form-control" id="estado" name="estado" placeholder="estado"> <!-- aria-describedby="sizing-addon2">-->
+					 <select class="form-control" data-style="btn-primary" id="estado" name="estado">
+						<option value="null">Nulo</option>
+                                          <?php
+                                            try {
+                                                    $rows = $CbCanteraController->listaEstados();
+                                                    foreach ($rows as $row) {
+                                          ?>
+                                               <option value="<?php print($row->id); ?>"><?php print($row->descripcion); ?></option>
+                                          <?php
+                                                    }
+                                            }  catch (Exception $exception) {
+                                                        echo 'Error al traer listaEstados: ' . $exception;
+                                                }
+                                          ?>
+                                        </select>
+
+                                    </div>
                                     </div>
                                     <div class="input-group">
-                                        <label for="productor">Productor</label>
-                                        <input type="text" class="form-control" id="productor" name="productor" placeholder="productor"> <!-- aria-describedby="sizing-addon2">-->
+                                        <label for="productor">Productor:  </label>
+					 <select class="form-control" data-style="btn-primary" id="productor" name="productor">
+						<option value="null" >Nulo</option>
+					  <?php
+                                	    try {
+		                                    $rows = $CbCanteraController->listaProductores();
+	        	                            foreach ($rows as $row) {
+        	        	          ?>
+                                               <option value="<?php print($row->id); ?>"><?php print($row->nombre); ?></option>
+					  <?php
+						    }
+					    }  catch (Exception $exception) {
+                                    			echo 'Error al traer listaProductores: ' . $exception;
+                                		}
+					  ?>
+					</select>
                                     </div>
                                     <div class="input-group">
                                         <label for="localidad">Localidad</label>
@@ -158,7 +223,22 @@
                                     </div>
                                     <div class="input-group">
                                         <label for="derecho">Derecho</label>
-                                        <input type="text" class="form-control" id="derecho" name="derecho" placeholder="derecho"> <!-- aria-describedby="sizing-addon2">-->
+					 <label for="derecho">Derecho</label>
+                                        <select class="form-control" data-style="btn-primary" id="derecho" name="derecho">
+                                                <option value="null" selected>Nulo</option>
+                                          <?php
+                                            try {
+                                                    $rows = $CbCanteraController->listaDerechos();
+                                                    foreach ($rows as $row) {
+                                          ?>
+                                               <option value="<?php print($row->id); ?>"><?php print($row->id); ?> - <?php print($row->descripcion); ?></option>
+                                          <?php
+                                                    }
+                                            }  catch (Exception $exception) {
+                                                        echo 'Error al traer listaDerechos: ' . $exception;
+                                                }
+                                          ?>
+                                        </select>
                                     </div>
                                     <div class="input-group">
                                         <label for="secuencia">Secuencia</label>
@@ -182,19 +262,62 @@
                                     </div>
                                     <div class="input-group">
                                         <label for="mineral">Mineral</label>
-                                        <input type="text" class="form-control" id="mineral" name="mineral" placeholder="mineral"> <!-- aria-describedby="sizing-addon2">-->
-                                    </div>
+					 <select class="form-control" data-style="btn-primary" id="mineral" name="mineral">
+						<option value="null" selected>Nulo</option>
+                                          <?php
+                                            try {
+                                                    $rows = $CbCanteraController->listaMinerales();
+                                                    foreach ($rows as $row) {
+                                          ?>
+                                               <option value="<?php print($row->id); ?>">"<?php print($row->id); ?> - <?php print($row->descripcion); ?></option>
+                                          <?php
+                                                    }
+                                            }  catch (Exception $exception) {
+                                                        echo 'Error al traer listaMinerales: ' . $exception;
+                                                }
+                                          ?>
+                                        </select>
+				    </div>
                                     <div class="input-group">
                                         <label for="titular">Titular</label>
                                         <input type="text" class="form-control" id="titular" name="titular" placeholder="titular"> <!-- aria-describedby="sizing-addon2">-->
                                     </div>
                                     <div class="input-group">
                                         <label for="estado">Estado</label>
-                                        <input type="text" class="form-control" id="estado" name="estado" placeholder="estado"> <!-- aria-describedby="sizing-addon2">-->
+					 <select class="form-control" data-style="btn-primary" id="estado" name="estado">
+						<option value="null" selected>Nulo</option>
+                                          <?php
+                                            try {
+                                                    $rows = $CbCanteraController->listaEstados();
+                                                    foreach ($rows as $row) {
+                                          ?>
+                                               <option value="<?php print($row->id); ?>"><?php print($row->id); ?> - <?php print($row->descripcion); ?></option>
+                                          <?php
+                                                    }
+                                            }  catch (Exception $exception) {
+                                                        echo 'Error al traer listaEstados: ' . $exception;
+                                                }
+                                          ?>
+                                        </select>
+
                                     </div>
                                     <div class="input-group">
                                         <label for="productor">Productor</label>
-                                        <input type="text" class="form-control" id="productor" name="productor" placeholder="productor"> <!-- aria-describedby="sizing-addon2">-->
+					 <select class="form-control" data-style="btn-primary" id="productor" name="productor">
+						<option value="null" selected>Nulo</option>
+					  <?php
+                                	    try {
+		                                    $rows = $CbCanteraController->listaProductores();
+	        	                            foreach ($rows as $row) {
+        	        	          ?>
+                                               <option value="<?php print($row->id); ?>"><?php print($row->nombre); ?></option>
+					  <?php
+						    }
+					    }  catch (Exception $exception) {
+                                    			echo 'Error al traer listaProductores: ' . $exception;
+                                		}
+					  ?>
+					</select>
                                     </div>
                                     <div class="input-group">
                                         <label for="localidad">Localidad</label>
@@ -402,13 +525,6 @@
                     <h2 class="sub-header">Canteras</h2>
 
         <?php
-            include 'database/DatabaseConnect.php';
-	          include 'database/CbCanteraController.php';
-
- 	          $dConnect = new DatabaseConnect;
-	          $cdb = $dConnect->dbConnectSimple();
-	          $CbCanteraController = new CbCanteraController();
-	          $CbCanteraController->cdb = $cdb;
 
             if (isset($_POST["save-language"]) || isset($_POST["update-language"]) ) {
         	     $id = $_POST['id'];
