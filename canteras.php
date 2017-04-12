@@ -269,7 +269,7 @@
                                                     $rows = $CbCanteraController->listaMinerales();
                                                     foreach ($rows as $row) {
                                           ?>
-                                               <option value="<?php print($row->id); ?>">"<?php print($row->id); ?> - <?php print($row->descripcion); ?></option>
+                                               <option value="<?php print($row->id); ?>"><?php print($row->id); ?> - <?php print($row->descripcion); ?></option>
                                           <?php
                                                     }
                                             }  catch (Exception $exception) {
