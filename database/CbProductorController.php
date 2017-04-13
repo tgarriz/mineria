@@ -23,6 +23,7 @@ class CbProductorController {
         return $rows;
     }
 
+
     /**
  * Creamos un nuevo idioma con los parámetros pasados.
  * We create a new language with parameters .

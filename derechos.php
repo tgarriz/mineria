@@ -63,12 +63,12 @@
                                   </div>
                                     <div class="input-group">
                                         <label for="codigo">Codigo</label>
-                                        <input type="text" class="form-control" id="codigo" name="codigo" placeholder="codigo" >
+                                        <input type="numer" class="form-control" id="codigo" name="codigo" placeholder="codigo" required>
                                         <!--<small class="text-muted">Lo utilizamos como ID y se forma con los iso de idioma (es) y país (ES) unidos por un guión bajo.</small>-->
                                     </div>
                                     <div class="input-group">
                                         <label for="descripcion">Descripcion</label>
-                                        <input type="text" class="form-control" id="descripcion" name="descripcion" placeholder="descripcion"> <!-- aria-describedby="sizing-addon2">-->
+                                        <input type="text" class="form-control" id="descripcion" name="descripcion" placeholder="descripcion" maxlength="250" required> <!-- aria-describedby="sizing-addon2">-->
                                     </div>
                                 </div>
                                 <div class="modal-footer">
@@ -99,12 +99,12 @@
                                   </div>
                                     <div class="input-group">
                                         <label for="codigo">Codigo</label>
-                                        <input type="text" class="form-control" id="codigo" name="codigo" placeholder="codigo" >
+                                        <input type="number" class="form-control" id="codigo" name="codigo" placeholder="codigo" required>
                                         <!--<small class="text-muted">Lo utilizamos como ID y se forma con los iso de idioma (es) y país (ES) unidos por un guión bajo.</small>-->
                                     </div>
                                     <div class="input-group">
                                         <label for="descripcion">Descripcion</label>
-                                        <input type="text" class="form-control" id="descripcion" name="descripcion" placeholder="descripcion"> <!-- aria-describedby="sizing-addon2">-->
+                                        <input type="text" class="form-control" id="descripcion" name="descripcion" placeholder="descripcion" maxlength="250" required> <!-- aria-describedby="sizing-addon2">-->
                                     </div>
                                 </div>
                                 <div class="modal-footer">

@@ -63,7 +63,7 @@
                                   </div>
                                     <div class="input-group">
                                         <label for="descripcion">Descripcion</label>
-                                        <input type="text" class="form-control" id="descripcion" name="descripcion" placeholder="descripcion" >
+                                        <input type="text" class="form-control" id="descripcion" name="descripcion" placeholder="descripcion" maxlength="250" required>
                                         <!--<small class="text-muted">Lo utilizamos como ID y se forma con los iso de idioma (es) y país (ES) unidos por un guión bajo.</small>-->
                                     </div>
                                 </div>
@@ -95,7 +95,7 @@
                                   </div>
                                     <div class="input-group">
                                         <label for="descripcion">Descripcion</label>
-                                        <input type="text" class="form-control" id="descripcion" name="descripcion" placeholder="descripcion" >
+                                        <input type="text" class="form-control" id="descripcion" name="descripcion" placeholder="descripcion" maxlength="250" required>
                                         <!--<small class="text-muted">Lo utilizamos como ID y se forma con los iso de idioma (es) y país (ES) unidos por un guión bajo.</small>-->
                                     </div>
                                 </div>

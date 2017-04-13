@@ -74,6 +74,8 @@ class CbCanteraController {
       try {
         $this->cdb->exec($sqlInsert);
       } catch (PDOException $pdoException) {
+	echo 'el query formado es:';
+	echo $sqlInsert;
         echo 'Error crear un nuevo elemento cantera en create(...): '.$pdoException->getMessage();
         exit();
       }

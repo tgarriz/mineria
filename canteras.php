@@ -71,7 +71,7 @@
                                   </div>
                                     <div class="input-group">
                                         <label for="partido">Partido</label>
-                                        <input type="text" class="form-control" id="partido" name="partido" placeholder="partido"> <!-- aria-describedby="sizing-addon2">-->
+                                        <input type="number" class="form-control" id="partido" name="partido" placeholder="partido" required> <!-- aria-describedby="sizing-addon2">-->
                                     </div>
                                     <div class="input-group">
                                         <label for="derecho">Derecho</label>
@@ -93,23 +93,23 @@
                                     </div>
                                     <div class="input-group">
                                         <label for="secuencia">Secuencia</label>
-                                        <input type="text" class="form-control" id="secuencia" name="secuencia" placeholder="secuencia"> <!-- aria-describedby="sizing-addon2">-->
+                                        <input type="number" class="form-control" id="secuencia" name="secuencia" placeholder="secuencia" required> <!-- aria-describedby="sizing-addon2">-->
                                     </div>
                                     <div class="input-group">
                                         <label for="caracteristica">Caracteristica</label>
-                                        <input type="text" class="form-control" id="caracteristica" name="caracteristica" placeholder="caracteristica"> <!-- aria-describedby="sizing-addon2">-->
+                                        <input type="text" class="form-control" id="caracteristica" name="caracteristica" placeholder="caracteristica" maxlength="10" size="10"> <!-- aria-describedby="sizing-addon2">-->
                                     </div>
                                     <div class="input-group">
                                         <label for="expediente">Expediente</label>
-                                        <input type="text" class="form-control" id="expediente" name="expediente" placeholder="expediente"> <!-- aria-describedby="sizing-addon2">-->
+                                        <input type="text" class="form-control" id="expediente" name="expediente" placeholder="expediente"  maxlength="10" size="10"> <!-- aria-describedby="sizing-addon2">-->
                                     </div>
                                     <div class="input-group">
                                         <label for="anio">Año</label>
-                                        <input type="text" class="form-control" id="anio" name="anio" placeholder="anio"> <!-- aria-describedby="sizing-addon2">-->
+                                        <input type="number" class="form-control" id="anio" name="anio" placeholder="anio"> <!-- aria-describedby="sizing-addon2">-->
                                     </div>
                                     <div class="input-group">
                                         <label for="nombre">Nombre</label>
-                                        <input type="text" class="form-control" id="nombre" name="nombre" placeholder="nombre"> <!-- aria-describedby="sizing-addon2">-->
+                                        <input type="text" class="form-control" id="nombre" name="nombre" placeholder="nombre" maxlength="250"> <!-- aria-describedby="sizing-addon2">-->
                                     </div>
                                     <div class="input-group">
                                         <label for="mineral">Mineral</label>
@@ -132,6 +132,8 @@
                                     </div>
                                     <div class="input-group">
                                         <label for="titular">Titular</label>
+					<input type="text" class="form-control" id="titular" name="titular" placeholder="titular" maxlength="250">
+				    </div>
                                     <div class="input-group">
                                         <label for="estado">Estado</label>
 					 <select class="form-control" data-style="btn-primary" id="estado" name="estado">
@@ -150,7 +152,6 @@
                                           ?>
                                         </select>
 
-                                    </div>
                                     </div>
                                     <div class="input-group">
                                         <label for="productor">Productor</label>
@@ -172,23 +173,23 @@
                                     </div>
                                     <div class="input-group">
                                         <label for="localidad">Localidad</label>
-                                        <input type="text" class="form-control" id="localidad" name="localidad" placeholder="localidad"> <!-- aria-describedby="sizing-addon2">-->
+                                        <input type="text" class="form-control" id="localidad" name="localidad" placeholder="localidad" maxlength="250"> <!-- aria-describedby="sizing-addon2">-->
                                     </div>
                                     <div class="input-group">
                                         <label for="nomenclatura">Nomenclatura</label>
-                                        <input type="text" class="form-control" id="nomenclatura" name="nomenclatura" placeholder="nomenclatura"> <!-- aria-describedby="sizing-addon2">-->
+                                        <input type="text" class="form-control" id="nomenclatura" name="nomenclatura" placeholder="nomenclatura" maxlength="250"> <!-- aria-describedby="sizing-addon2">-->
                                     </div>
                                     <div class="input-group">
                                         <label for="reservas">Reservas</label>
-                                        <input type="text" class="form-control" id="reservas" name="reservas" placeholder="reservas"> <!-- aria-describedby="sizing-addon2">-->
+                                        <input type="number" class="form-control" id="reservas" name="reservas" placeholder="reservas"> <!-- aria-describedby="sizing-addon2">-->
                                     </div>
                                     <div class="input-group">
                                         <label for="unidad">Unidad</label>
-                                        <input type="text" class="form-control" id="unidad" name="unidad" placeholder="unidad"> <!-- aria-describedby="sizing-addon2">-->
+                                        <input type="text" class="form-control" id="unidad" name="unidad" placeholder="unidad" maxlength="3" size="3"> <!-- aria-describedby="sizing-addon2">-->
                                     </div>
                                     <div class="input-group">
                                         <label for="sector">Sector</label>
-                                        <input type="text" class="form-control" id="sector" name="sector" placeholder="sector"> <!-- aria-describedby="sizing-addon2">-->
+                                        <input type="number" class="form-control" id="sector" name="sector" placeholder="sector"> <!-- aria-describedby="sizing-addon2">-->
                                     </div>
                                 </div>
                                 <div class="modal-footer">
@@ -219,7 +220,7 @@
                                   </div>
                                     <div class="input-group">
                                         <label for="partido">Partido</label>
-                                        <input type="text" class="form-control" id="partido" name="partido" placeholder="partido"> <!-- aria-describedby="sizing-addon2">-->
+                                        <input type="number" class="form-control" id="partido" name="partido" placeholder="partido" required> <!-- aria-describedby="sizing-addon2">-->
                                     </div>
                                     <div class="input-group">
                                         <label for="derecho">Derecho</label>
@@ -242,23 +243,23 @@
                                     </div>
                                     <div class="input-group">
                                         <label for="secuencia">Secuencia</label>
-                                        <input type="text" class="form-control" id="secuencia" name="secuencia" placeholder="secuencia"> <!-- aria-describedby="sizing-addon2">-->
+                                        <input type="number" class="form-control" id="secuencia" name="secuencia" placeholder="secuencia" required> <!-- aria-describedby="sizing-addon2">-->
                                     </div>
                                     <div class="input-group">
                                         <label for="caracteristica">Caracteristica</label>
-                                        <input type="text" class="form-control" id="caracteristica" name="caracteristica" placeholder="caracteristica"> <!-- aria-describedby="sizing-addon2">-->
+                                        <input type="text" class="form-control" id="caracteristica" name="caracteristica" placeholder="caracteristica" maxlength="10" size="10"> <!-- aria-describedby="sizing-addon2">-->
                                     </div>
                                     <div class="input-group">
                                         <label for="expediente">Expediente</label>
-                                        <input type="text" class="form-control" id="expediente" name="expediente" placeholder="expediente"> <!-- aria-describedby="sizing-addon2">-->
+                                        <input type="text" class="form-control" id="expediente" name="expediente" placeholder="expediente" maxlength="10" size="10"> <!-- aria-describedby="sizing-addon2">-->
                                     </div>
                                     <div class="input-group">
                                         <label for="anio">Año</label>
-                                        <input type="text" class="form-control" id="anio" name="anio" placeholder="anio"> <!-- aria-describedby="sizing-addon2">-->
+                                        <input type="number" class="form-control" id="anio" value="0" name="anio" placeholder="anio"> <!-- aria-describedby="sizing-addon2">-->
                                     </div>
                                     <div class="input-group">
                                         <label for="nombre">Nombre</label>
-                                        <input type="text" class="form-control" id="nombre" name="nombre" placeholder="nombre"> <!-- aria-describedby="sizing-addon2">-->
+                                        <input type="text" class="form-control" id="nombre" name="nombre" placeholder="nombre" maxlength="250"> <!-- aria-describedby="sizing-addon2">-->
                                     </div>
                                     <div class="input-group">
                                         <label for="mineral">Mineral</label>
@@ -321,23 +322,23 @@
                                     </div>
                                     <div class="input-group">
                                         <label for="localidad">Localidad</label>
-                                        <input type="text" class="form-control" id="localidad" name="localidad" placeholder="localidad"> <!-- aria-describedby="sizing-addon2">-->
+                                        <input type="text" class="form-control" id="localidad" name="localidad" placeholder="localidad" maxlength="250"> <!-- aria-describedby="sizing-addon2">-->
                                     </div>
                                     <div class="input-group">
                                         <label for="nomenclatura">Nomenclatura</label>
-                                        <input type="text" class="form-control" id="nomenclatura" name="nomenclatura" placeholder="nomenclatura"> <!-- aria-describedby="sizing-addon2">-->
+                                        <input type="text" class="form-control" id="nomenclatura" name="nomenclatura" placeholder="nomenclatura" maxlength="250"> <!-- aria-describedby="sizing-addon2">-->
                                     </div>
                                     <div class="input-group">
                                         <label for="reservas">Reservas</label>
-                                        <input type="text" class="form-control" id="reservas" name="reservas" placeholder="reservas"> <!-- aria-describedby="sizing-addon2">-->
+                                        <input type="number" class="form-control" id="reservas" name="reservas" placeholder="reservas"> <!-- aria-describedby="sizing-addon2">-->
                                     </div>
                                     <div class="input-group">
                                         <label for="unidad">Unidad</label>
-                                        <input type="text" class="form-control" id="unidad" name="unidad" placeholder="unidad"> <!-- aria-describedby="sizing-addon2">-->
+                                        <input type="text" class="form-control" id="unidad" name="unidad" placeholder="unidad" maxlength="3" size="3"> <!-- aria-describedby="sizing-addon2">-->
                                     </div>
                                     <div class="input-group">
                                         <label for="sector">Sector</label>
-                                        <input type="text" class="form-control" id="sector" name="sector" placeholder="sector"> <!-- aria-describedby="sizing-addon2">-->
+                                        <input type="number" class="form-control" id="sector" name="sector" placeholder="sector"> <!-- aria-describedby="sizing-addon2">-->
                                     </div>
                                 </div>
                                 <div class="modal-footer">

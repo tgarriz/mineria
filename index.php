@@ -63,12 +63,12 @@
                                   </div>
                                   <div class="input-group">
                                       <label for="codigo">Codigo</label>
-                                      <input type="text" class="form-control" id="codigo" name="codigo" placeholder="codigo" >
+                                      <input type="number" class="form-control" id="codigo" name="codigo" placeholder="codigo" required>
                                       <!--<small class="text-muted">Lo utilizamos como ID y se forma con los iso de idioma (es) y país (ES) unidos por un guión bajo.</small>-->
                                   </div>
                                     <div class="input-group">
                                         <label for="nombre">Nombre</label>
-                                        <input type="text" class="form-control" id="nombre" name="nombre" placeholder="nombre" >
+                                        <input type="text" class="form-control" id="nombre" name="nombre" placeholder="nombre" maxlength="250" required>
                                         <!--<small class="text-muted">Lo utilizamos como ID y se forma con los iso de idioma (es) y país (ES) unidos por un guión bajo.</small>-->
                                     </div>
                                 </div>
@@ -100,12 +100,12 @@
                                   </div>
                                     <div class="input-group">
                                         <label for="codigo">Codigo</label>
-                                        <input type="text" class="form-control" id="codigo" name="codigo" placeholder="codigo" >
+                                        <input type="number" class="form-control" id="codigo" name="codigo" placeholder="codigo" required>
                                         <!--<small class="text-muted">Lo utilizamos como ID y se forma con los iso de idioma (es) y país (ES) unidos por un guión bajo.</small>-->
                                     </div>
                                     <div class="input-group">
                                         <label for="nombre">Nombre</label>
-                                        <input type="text" class="form-control" id="nombre" name="nombre" placeholder="nombre"> <!-- aria-describedby="sizing-addon2">-->
+                                        <input type="text" class="form-control" id="nombre" name="nombre" placeholder="nombre" maxlength="250" required> <!-- aria-describedby="sizing-addon2">-->
                                     </div>
                                 </div>
                                 <div class="modal-footer">

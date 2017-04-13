@@ -63,7 +63,7 @@
                                   </div>
                                     <div class="input-group">
                                         <label for="descripcion">Descripcion</label>
-                                        <input type="text" class="form-control" id="descripcion" name="descripcion" placeholder="descripcion" >
+                                        <input type="text" class="form-control" id="descripcion" name="descripcion" placeholder="descripcion" maxlength="50" required>
                                         <!--<small class="text-muted">Lo utilizamos como ID y se forma con los iso de idioma (es) y país (ES) unidos por un guión bajo.</small>-->
                                     </div>
                                 </div>
@@ -95,7 +95,7 @@
                                   </div>
                                     <div class="input-group">
                                         <label for="descripcion">Descripcion</label>
-                                        <input type="text" class="form-control" id="descripcion" name="descripcion" placeholder="descripcion" >
+                                        <input type="text" class="form-control" id="descripcion" name="descripcion" placeholder="descripcion" maxlength="50" required>
                                         <!--<small class="text-muted">Lo utilizamos como ID y se forma con los iso de idioma (es) y país (ES) unidos por un guión bajo.</small>-->
                                     </div>
                                 </div>
@@ -169,8 +169,8 @@
                         <li><a href="index.php">Productores </a></li>
                         <li><a href="minerales.php">Minerales</a></li>
                         <li><a href="derechos.php">Derechos</a></li>
-			                  <li class="active"><a href="estados.php">Estados<span class="sr-only">(current)</span></a></li>
-			                  <li><a href="canteras.php">Canteras</a></li>
+		        <li class="active"><a href="estados.php">Estados<span class="sr-only">(current)</span></a></li>
+		        <li><a href="canteras.php">Canteras</a></li>
                     </ul>
                 </div>
                 <div class="col-sm-9 col-sm-offset-3 col-md-10 col-md-offset-2 main">
