@@ -41,7 +41,7 @@ function newCbEstado(){
 }
 
 function newCbCantera(){
-    openCbCantera('new',null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null);
+    openCbCantera('new',null,null,null,null,null,null,0,null,null,null,null,null,null,null,0,null,null,null);
 }
 /**
  * Abrimos la ventana modal teniendo en cuenta la acción (action) para

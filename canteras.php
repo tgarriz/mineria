@@ -255,7 +255,7 @@
                                     </div>
                                     <div class="input-group">
                                         <label for="anio">Año</label>
-                                        <input type="number" class="form-control" id="anio" value="0" name="anio" placeholder="anio"> <!-- aria-describedby="sizing-addon2">-->
+                                        <input type="number" class="form-control" id="anio" value=2000 name="anio" placeholder="anio"> <!-- aria-describedby="sizing-addon2">-->
                                     </div>
                                     <div class="input-group">
                                         <label for="nombre">Nombre</label>

@@ -68,6 +68,9 @@ class CbCanteraController {
  */
     function create($partido, $derecho, $secuencia, $caracteristica, $expediente, $anio,
       $nombre,$mineral,$titular,$estado,$productor,$localidad,$nomenclatura,$reservas,$unidad,$sector){
+      if ( empty($anio)) {$anio=0;}
+      if ( empty($reservas)) {$reservas=0;}
+      if ( empty($sector)) {$sector=0;}	
       $sqlInsert = "INSERT INTO mineria.cantera(partido, derecho, secuencia, caracteristica, expediente, anio,
         nombre,mineral,titular,estado,productor,localidad,nomenclatura,reservas,unidad,sector)"
         . " VALUES (".$partido.",".$derecho.",".$secuencia.",'".$caracteristica."','".$expediente."',".$anio.",'".$nombre."',".$mineral.",'".$titular."',".$estado.",".$productor.",'".$localidad."','".$nomenclatura."',".$reservas.",'".$unidad."',".$sector.");";
